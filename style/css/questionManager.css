@@ -80,7 +80,7 @@ body {
 /* Kiểu cho bảng */
 .cau_hoi {
   margin-top: 24px;
-  overflow-x: auto; /* Hỗ trợ cuộn ngang trên thiết bị nhỏ */
+  /* overflow-x: auto; Hỗ trợ cuộn ngang trên thiết bị nhỏ */
 }
 
 .cau_hoi table {
