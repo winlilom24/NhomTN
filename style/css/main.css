@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  background-image: url("../img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: rgba(57, 50, 173, 1); */
+}
+
+body > * {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.wrapper {
+  background: transparent;
+  /* Làm nền trong suốt */
+  width: 700px;
+
+  border-radius: 10px;
+  box-shadow: 0 25px 70px rgba(216, 213, 213, 0.902);
+  /* background: rgba(228, 223, 223, 0.854); */
+  /* Màu trắng với độ trong suốt */
+  /* Làm mờ nền phía sau */
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+}
+
+h1.title {
+  padding: 15px 0;
+  margin-left: 25px;
+  font-weight: normal;
+  color: rgba(57, 50, 173, 1);
+}
+
+.form {
+  width: 700px;
+  backdrop-filter: blur(20px);
+  background: transparent;
+  color: #155bda;
+}
+
+.myform {
+  /* background: #F4F5F7; */
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+}
+
+.myform label {
+  display: block;
+  color: black;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.control-from {
+  backdrop-filter: blur(20px);
+}
+
+.myform input {
+  border: 0;
+  outline: 0;
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  color: #155bda;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-indent: 15px;
+  border: 1px solid #fff;
+  transition: border 250ms;
+  backdrop-filter: blur(5px);
+  background: transparent;
+}
+
+.myform .control-from#gender-group {
+  flex-direction: row;
+  align-items: center;
+  gap: none;
+}
+
+.myform .control-from#gender-group label {
+  margin: 0;
+  font-weight: normal;
+}
+
+#gender-group {
+  display: flex;
+  align-items: center;
+}
+
+#gender-group input {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.full-width {
+  grid-column: -1 / 1;
+}
+
+.button {
+  grid-column: -1 / 1;
+  display: flex;
+  justify-content: center;
+}
+
+.button button {
+  border: 0;
+  outline: 0;
+  width: 120px;
+  height: 50px;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: linear-gradient(
+    356deg,
+    rgb(12, 31, 126) 0%,
+    rgb(68, 84, 122) 100%
+  );
+}
+
+.button button:hover {
+  background: rgba(57, 50, 173, 1);
+}

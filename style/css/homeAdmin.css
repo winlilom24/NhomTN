@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #000;
+  overflow: hidden;
+  color: #fff;
+}
+
+.neon-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f0, #00f, #f0f);
+  background-size: 600% 600%;
+  animation: neonMove 10s ease infinite;
+  z-index: -1;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+@keyframes neonMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid #0ff;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* .logo-container img {
+    height: 50px;
+    margin-right: 15px;
+} */
+
+.logo {
+  width: 60px;
+  border-radius: 30px;
+  margin-right: 15px;
+  border: 2px solid white;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-container h1 {
+  font-size: 24px;
+  color: #0ff;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-name {
+  font-size: 18px;
+  color: #ffe600;
+  font-weight: bold;
+  padding-left: 250px;
+}
+
+.user-menu {
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+.user-menu i {
+  font-size: 30px;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.user-menu:hover .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  width: 120px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown a:hover {
+  background: #f1f1f1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  height: 400px; /* hoặc auto nếu bạn để nội dung linh hoạt */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  border-radius: 10px;
+  background-image: url("../img/neon_girl_learning.jpg");
+  background-size: 100% 100%; /* ảnh fill toàn phần container */
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slogan {
+  font-size: 18px;
+  font-weight: bold;
+  background: rgba(50, 50, 50, 0.5);
+  padding: 10px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.left,
+.right {
+  flex: 1;
+  padding: 35px;
+  background: rgba(50, 50, 50, 0.5);
+  color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+  animation: pulseBorder 6s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulseBorder {
+  0% {
+    box-shadow: 0 0 10px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #0ff;
+  }
+}
+
+.left:hover,
+.right:hover {
+  transform: translateY(-7px);
+  background: rgba(60, 60, 60, 0.6);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4), 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #0ff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00bfff;
+  color: #fff;
+  box-shadow: 0 0 12px #00bfff;
+}
+
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #0ff;
+  margin-top: 20px;
+  font-size: 17px;
+  border-top: 1px solid #0ff; /* viền trên nhẹ cho nét chia tách */
+  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.3); /* ánh sáng nhẹ */
+}

@@ -1,0 +1,153 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #81353589, #eaeaea);
+  background-image: url("../img/anhnen.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px 10px;
+  color: #333;
+  text-align: center;
+}
+
+h2 {
+  color: #c21313d6;
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.div.container {
+  filter: brightness(1.05);
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table th:nth-child(1),
+table td:nth-child(1) {
+  width: 60px;
+}
+
+table td:nth-child(2) {
+  white-space: nowrap;
+}
+
+table th:nth-child(3),
+table td:nth-child(3) {
+  width: 100px;
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #c21313d6;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.pagination a {
+  display: inline-block;
+  margin: 0 4px;
+  padding: 8px 14px;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+.pagination a.active,
+.pagination a:hover {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination a.active {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 10px 6px;
+  }
+
+  .pagination a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}

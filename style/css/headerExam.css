@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    background-color: #0073e6;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 60px;
+    border-radius: 30px;
+    margin-right: 15px;
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  .user-menu {
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .user-name {
+    font-size: 18px;
+    color: #ffe600;
+    font-weight: bold;
+    padding-left: 250px;
+  }
+  
+  
+  .user-menu i {
+    font-size: 30px;
+  }
+  
+  

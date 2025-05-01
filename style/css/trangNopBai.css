@@ -1,0 +1,17 @@
+label {
+  display: block;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+label.correct-answer {
+  background-color: #84ef89;
+  color: green;
+}
+label.incorrect {
+  background-color: #ff6666;
+  color: white;
+}
