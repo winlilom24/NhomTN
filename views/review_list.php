@@ -1,4 +1,8 @@
 <?php
+        require __DIR__ . '/../site5.php';
+        load_headerList();
+?>
+<?php
 $page = isset($_GET['page_num']) ? $_GET['page_num'] : 1;
 $limit = 5;
 $from = ($page - 1) * $limit;
@@ -10,6 +14,8 @@ $so_trang = ceil($so_bai / $limit);
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/css/review.css">
+    <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Bài thi đã làm</title>
 </head>
 <body>

@@ -1,9 +1,15 @@
+<?php
+    require __DIR__ . '/../site4.php';
+    load_headerDetail();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Chi tiết bài thi</title>
     <link rel="stylesheet" href="style/css/trangNopBai.css">
+    <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="result-container">
