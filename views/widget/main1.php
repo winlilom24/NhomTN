@@ -21,7 +21,7 @@
                 <p>Số câu hỏi: <strong>40</strong></p>
                 <!-- Nút Ôn tập -->
                 <!-- Chỉ hiện chữ Ôn tập -->
-                <a href="../index.php?page=baiontap" class="ontap-btn" style="display:inline-block; background:#2d6cdf; color:#fff; padding:8px 20px; border-radius:6px; text-decoration:none; margin:10px 0;">Ôn tập</a>
+                <a href="../index.php?page=baiontap" class="ontap-btn">Ôn tập</a>
                 <button onclick="location.href='../index.php?page=exam'" class="test">
                     Bắt đầu làm bài
                 </button>

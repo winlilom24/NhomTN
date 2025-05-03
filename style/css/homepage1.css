@@ -135,6 +135,17 @@ header {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.ontap-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
 .right {
   flex: 1;
   font-size: 18px;
