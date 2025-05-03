@@ -13,7 +13,7 @@ switch ($page) {
         break;
     case 'homeAdmin':
         header('Location: views/homeAdmin.php');
-        break;  
+        break;
     case 'exam':
         require_once 'controllers/exam_handler.php';
         start_exam();
@@ -30,8 +30,10 @@ switch ($page) {
         require_once 'controllers/review_handler.php';
         show_test_detail($_GET['test_id']);
         break;
-      
+    case 'baiontap':
+        require_once 'views/ontap.php';
+        break;
+
     default:
         echo "404 Not Found";
 }
-?>
