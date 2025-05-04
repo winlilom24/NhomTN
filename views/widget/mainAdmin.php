@@ -16,12 +16,12 @@
             <div class="left">
                 <h2>📋 Quản lý câu hỏi</h2>
                 <p>Thêm, sửa, xóa các câu hỏi trắc nghiệm trong ngân hàng đề thi.</p>
-                <a href="../views/questionManager.php" class="btn">Đi đến quản lý</a>
+                <a href="../indexAdmin.php?page=questionManager" class="btn">Đi đến quản lý</a>
             </div>
             <div class="right">
                 <h2>👨‍🎓 Danh sách sinh viên đã thi</h2>
                 <p>Xem thông tin chi tiết các bài thi đã hoàn thành bởi sinh viên.</p>
-                <a href="danhsachsinhvien.php" class="btn">Xem danh sách</a>
+                <a href="../indexAdmin.php?page=studentlist" class="btn">Xem danh sách</a>
             </div>
         </div>
     </div>

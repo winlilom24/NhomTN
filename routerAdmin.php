@@ -11,6 +11,12 @@ switch ($page) {
     case 'homeAdmin':
         header('Location: views/homeAdmin.php');
         break;
+    case 'questionManager':
+        header ('Location: views/questionManager.php');
+        break;
+    case 'studentlist':
+        header ('Location: views/studentlist.php');
+        break;
     case 'exam':
         require_once 'controllers/ExamController.php';
         ExamController::start();
@@ -27,6 +33,7 @@ switch ($page) {
         require_once 'controllers/ReviewController.php';
         ReviewController::showDetail($_GET['test_id']); 
         break;
+        
     default:
         echo "404 Not Found";
 }
