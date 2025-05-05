@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $count++;
         }
     }
-    echo "<h2>Bạn đúng $count / " . count($_POST['answers']) . " câu!</h2>";
+    // echo "<h2>Bạn đúng $count / " . count($_POST['answers']) . " câu!</h2>";
 }
 
 ?>
