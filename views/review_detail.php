@@ -8,11 +8,13 @@
     <meta charset="UTF-8">
     <title>Chi tiết bài thi</title>
     <link rel="stylesheet" href="style/css/trangNopBai.css">
-    <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="stylesheet" href="style/css/headerDetail.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="result-container">
+        <br>
+        <br>
         <h2>Chi tiết bài thi</h2>
         <?php foreach ($questions as $index => $q): ?>
             <div class="questionBox">
