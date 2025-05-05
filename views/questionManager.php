@@ -52,6 +52,10 @@
                 $start_page = max(1, $end_page - $max_buttons + 1);
             }
     }
+    // Nút "Trang đầu"
+    if ($page > 1) {
+        echo "<a href='?trang=1' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang đầu</a>";
+    }
 
     // Nút "Trang trước"
     if ($page > 1) {
