@@ -65,8 +65,8 @@
 
              <div class="control-from" id="gender-group">
                  <label for="gender-female"> Gender </label>
-                 <input type="radio" id="gender-male" name="gender" value="0"> Nam 
-                 <input type="radio" id="gender-female" name="gender" value="1"> Nữ
+                 <input type="radio" id="gender-male" name="gender" value="Nam"> Nam 
+                 <input type="radio" id="gender-female" name="gender" value="Nữ"> Nữ
              </div>
              <div class="button">
                 <button id="register" type="submit" name="signup">Register</button>
