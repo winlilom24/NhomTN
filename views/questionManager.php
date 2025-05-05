@@ -34,27 +34,44 @@
         <!-- thêm nút chuyển trang -->
 
         <div class="pagination" style="text-align: center; margin-top: 20px;">
-            <?php
+             <?php
             $sotrangdl = $GLOBALS['sotrangdl'];
             $page = $GLOBALS['page'];
+            $max_buttons = 5; // Số nút tối đa muốn hiển thị
+             $half_buttons = floor($max_buttons / 2); // Số nút hiển thị mỗi bên của trang hiện tại
 
-            //trang trước
-            if ($page > 1) {
-                $prev_page = $page - 1;
-                echo "<a href='?trang=$prev_page' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang trước</a>";
+            // Tính toán trang bắt đầu và kết thúc
+            $start_page = max(1, $page - $half_buttons);
+             $end_page = min($sotrangdl, $page + $half_buttons);
+
+            // Điều chỉnh để luôn hiển thị đúng 5 nút (nếu có đủ trang)
+             if ($end_page - $start_page + 1 < $max_buttons) {
+             if ($start_page == 1) {
+                $end_page = min($sotrangdl, $start_page + $max_buttons - 1);
+             } else {
+                $start_page = max(1, $end_page - $max_buttons + 1);
             }
-            //theo số thứ tự 
-            for ($i = 1; $i <= $sotrangdl; $i++) {
-                $active = ($i == $page) ? "background-color: #007bff; color: white;" : "";
-                echo "<a href='?trang=$i' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px; $active'>$i</a>";
-            }
-            //trang sau 
-            if ($page < $sotrangdl) {
-                $next_page = $page + 1;
-                echo "<a href='?trang=$next_page' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang sau</a>";
-            }
-            ?>
-        </div>
+    }
+
+    // Nút "Trang trước"
+    if ($page > 1) {
+        $prev_page = $page - 1;
+        echo "<a href='?trang=$prev_page' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang trước</a>";
+    }
+
+    // Hiển thị các nút số trang
+    for ($i = $start_page; $i <= $end_page; $i++) {
+        $active = ($i == $page) ? "background-color: #007bff; color: white;" : "";
+        echo "<a href='?trang=$i' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px; $active'>$i</a>";
+    }
+
+    // Nút "Trang sau"
+    if ($page < $sotrangdl) {
+        $next_page = $page + 1;
+        echo "<a href='?trang=$next_page' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang sau</a>";
+    }
+    ?>
+</div>
     </div>
 
     <?php include 'modal.php'; ?>
