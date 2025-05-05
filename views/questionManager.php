@@ -74,6 +74,11 @@
         $next_page = $page + 1;
         echo "<a href='?trang=$next_page' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang sau</a>";
     }
+    // Nút "Trang cuối"
+    if ($page < $sotrangdl) {
+        echo "<a href='?trang=$sotrangdl' style='padding: 8px 12px; margin: 0 5px; text-decoration: none; border: 1px solid #ccc; border-radius: 4px;'>Trang cuối</a>";
+    }
+    
     ?>
 </div>
     </div>
