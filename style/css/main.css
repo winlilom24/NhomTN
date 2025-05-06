@@ -1,9 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
+.register {
   width: 100vw;
   height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,25 +11,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background: rgba(57, 50, 173, 1); */
-}
-
-body > * {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
 }
 
 .wrapper {
   background: transparent;
   /* Làm nền trong suốt */
   width: 700px;
-  min-height: 100%;
+  min-height: 90%;
   border-radius: 10px;
   box-shadow: 0 25px 70px rgba(216, 213, 213, 0.902);
-  /* background: rgba(228, 223, 223, 0.854); */
-  /* Màu trắng với độ trong suốt */
-  /* Làm mờ nền phía sau */
   overflow: hidden;
   backdrop-filter: blur(20px);
 }
@@ -55,7 +40,6 @@ h1.title {
 }
 
 .myform {
-  /* background: #F4F5F7; */
   padding: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr;
