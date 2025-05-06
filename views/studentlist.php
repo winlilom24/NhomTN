@@ -55,7 +55,7 @@ $result = mysqli_query($conn, $sql);
                     $ngay_sinh = date("d/m/Y", strtotime($row['ngay_sinh']));
                     echo "<td>" . htmlspecialchars($ngay_sinh) . "</td>";
                     echo "<td>" . htmlspecialchars($row['sdt']) . "</td>";
-                    echo "<td>" . ($row['gioi_tinh'] ? 'Nam' : 'Nữ') . "</td>";
+                    echo "<td>" . htmlspecialchars($row['gioi_tinh']) . "</td>";
                     echo "<td>";
                     echo "<button class='editBtn' data-id='" . htmlspecialchars($row['id']) . "'>Xem chi tiết</button>";
                     echo "</td>";

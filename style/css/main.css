@@ -11,6 +11,7 @@ body {
   background-image: url("../img/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed; /*Giữ hình nền cố định*/
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +29,7 @@ body > * {
   background: transparent;
   /* Làm nền trong suốt */
   width: 700px;
-
+  min-height: 100%;
   border-radius: 10px;
   box-shadow: 0 25px 70px rgba(216, 213, 213, 0.902);
   /* background: rgba(228, 223, 223, 0.854); */
@@ -47,6 +48,7 @@ h1.title {
 
 .form {
   width: 700px;
+  min-height: 100%;
   backdrop-filter: blur(20px);
   background: transparent;
   color: #155bda;
@@ -85,7 +87,7 @@ h1.title {
   border: 1px solid #fff;
   transition: border 250ms;
   backdrop-filter: blur(5px);
-  background: transparent;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .myform .control-from#gender-group {
@@ -138,4 +140,20 @@ h1.title {
 
 .button button:hover {
   background: rgba(57, 50, 173, 1);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%; /* Giảm kích thước trên màn hình nhỏ */
+    margin: 0 auto;
+  }
+
+  .myform {
+    grid-template-columns: 1fr; /* Chuyển sang 1 cột trên màn hình nhỏ */
+    grid-gap: 15px;
+  }
+
+  .myform input {
+    height: 40px; /* Giảm chiều cao input trên màn hình nhỏ */
+  }
 }

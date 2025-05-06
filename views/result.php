@@ -8,13 +8,15 @@
 </head>
 <body>
     <div class="result-container">
+        
         <h2>Kết quả bài thi</h2>
+        <div class = "result-summary">
         <p><strong>Số câu đúng:</strong> <?= $correct ?></p>
         <p><strong>Số câu sai:</strong> <?= $wrong ?></p>
         <p><strong>Điểm:</strong> <?= $score ?></p>
-        
         <p><strong>Thời gian làm bài:</strong> <?= floor($time_taken / 60) ?> phút <?= $time_taken % 60 ?> giây</p>
-        
+        </div>  
+
         <?php foreach ($results as $index => $q): ?>
             <div class="questionBox">
                 <h5>Câu <?= $index + 1 ?>: <?= $q['question'] ?></h5>
