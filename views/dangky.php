@@ -78,7 +78,7 @@ load_header();
                  </div>
              </form>
          </div>
-     </div      iv>
- class="register"</div>
+     </div>
+</div>
 </body>
 </html>
