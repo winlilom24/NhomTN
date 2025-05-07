@@ -22,8 +22,8 @@ body {
   margin: 0 auto;
 }
 
-/* Kiểu cho nút "Thêm" */
-#add {
+/* Kiểu cho nút hành động (Quay lại, Xem chi tiết, Tải thông tin, v.v.) */
+.action-btn {
   background: linear-gradient(to right, #3b82f6, #60a5fa); /* Gradient xanh */
   color: white;
   padding: 12px 28px;
@@ -37,50 +37,23 @@ body {
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3); /* Bóng nhẹ */
-  animation: float 2s ease-in-out infinite; /* Hiệu ứng nổi nhẹ */
+  text-decoration: none; /* Xóa gạch chân cho thẻ <a> */
 }
 
-#add:hover {
+.action-btn:hover {
   background: linear-gradient(to right, #2563eb, #3b82f6);
   transform: translateY(-3px); /* Hiệu ứng nâng lên */
   box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
-  animation: pulse 1.5s infinite; /* Hiệu ứng nhấp nháy khi hover */
 }
 
-#add:active {
+.action-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: translateY(-3px) scale(1);
-    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
-  }
-  50% {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.5);
-  }
-  100% {
-    transform: translateY(-3px) scale(1);
-    box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
-  }
 }
 
 /* Kiểu cho bảng */
 .cau_hoi {
   margin-top: 24px;
- 
 }
 
 .cau_hoi table {
@@ -149,15 +122,53 @@ body {
     transform: translateX(0);
   }
 }
-/*Kiểu cho nút chuyển trang*/
+
+/* Kiểu cho phân trang */
 .pagination {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   margin-top: 20px;
-  clear: both; /* Đảm bảo không bị float ảnh hưởng */
-  position: relative; /* Đảm bảo hiển thị theo luồng tự nhiên */
+  flex-wrap: wrap;
 }
 
-/* Kiểu cho các nút Sửa và Xóa */
+/* Kiểu cho nút phân trang */
+.pagination-btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background-color: #e5e7eb; /* Nền xám */
+  color: #1f2937; /* Màu chữ */
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-btn:hover {
+  background-color: #3b82f6; /* Màu xanh khi hover */
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.pagination-btn.active {
+  background-color: #3b82f6; /* Màu xanh cho trang hiện tại */
+  color: white;
+  cursor: default; /* Không cho phép nhấp */
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Kiểu cho nhóm nút (Tải thông tin và Quay lại) */
+.button-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+/* Kiểu cho nút Sửa và Xóa */
 .editBtn,
 .deleteBtn {
   padding: 8px 16px;
@@ -168,12 +179,13 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none; /* Xóa gạch chân cho thẻ <a> */
+  display: inline-block; /* Đảm bảo thẻ <a> hoạt động như nút */
 }
 
 .editBtn {
   background-color: #10b981; /* Màu xanh lá cho nút Sửa */
   color: white;
-  margin-right: 10px;
 }
 
 .editBtn:hover {
@@ -272,7 +284,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: -100px; /* Giảm khoảng cách giữa các ô */
+  gap: 12px; /* Sửa khoảng cách giữa các ô */
 }
 
 form h2 {
@@ -324,11 +336,13 @@ form button[type="button"]:hover {
 }
 
 /* Tối ưu hiệu suất */
-#add,
+.action-btn,
 .modal-content,
 .cau_hoi tr,
 .close,
-form h2 {
+form h2,
+.pagination-btn,
+.button-group {
   will-change: transform, opacity;
 }
 
@@ -357,9 +371,23 @@ form h2 {
     font-size: 20px;
   }
 
-  #add {
+  .action-btn {
     padding: 10px 20px;
     font-size: 14px;
+  }
+
+  .pagination-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .button-group {
+    gap: 8px;
+  }
+
+  .editBtn {
+    padding: 6px 12px;
+    font-size: 12px;
   }
 }
 
@@ -372,12 +400,28 @@ form h2 {
 
   .editBtn,
   .deleteBtn {
-    padding: 6px 12px;
+    padding: 5px 10px;
     font-size: 12px;
   }
 
   .modal-content {
     padding: 16px;
     max-height: 100vh; /* Giảm thêm trên màn hình rất nhỏ */
+  }
+
+  .pagination-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .button-group {
+    flex-direction: column; /* Xếp dọc trên màn hình rất nhỏ */
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 }
