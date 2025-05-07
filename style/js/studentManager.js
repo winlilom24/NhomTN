@@ -1,75 +1,82 @@
-$(document).ready(function() {
-    // Xử lý sự kiện nhấp vào nút "Xem chi tiết"
-    $('.editBtn').on('click', function() {
-        var studentId = $(this).data('id');
-        
-        // Gửi yêu cầu AJAX để lấy thống kê bài thi
-        $.ajax({
-            url: '../controllers/get_student_stats.php',
-            type: 'POST',
-            data: { student_id: studentId },
-            dataType: 'json',
-            success: function(response) {
-                if (response.success) {
+document.addEventListener('DOMContentLoaded', function() {
+    // Lấy tất cả các nút "Xem chi tiết"
+    const editButtons = document.querySelectorAll('.editBtn');
+    
+    // Thêm sự kiện click cho từng nút
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const studentId = this.getAttribute('data-id');
+            
+            // Gửi yêu cầu AJAX bằng fetch
+            fetch('../controllers/get_student_stats.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `student_id=${encodeURIComponent(studentId)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
                     // Cập nhật nội dung modal
-                    $('#studentName').text(response.data.student_name);
-                    $('#totalTests').text(response.data.total_tests);
-                    $('#avgScore').text(response.data.avg_score.toFixed(2));
-                    $('#avgTime').text((response.data.avg_time / 60).toFixed(2));
-
-                    // Cập nhật bài thi gần nhất
-                    if (response.data.latest_test) {
-                        $('#latestId').text(response.data.latest_test.id_bai_thi);
-                        $('#latestScore').text(response.data.latest_test.so_diem);
-                        $('#latestTime').text((response.data.latest_test.thoi_gian_thi / 60).toFixed(2));
-                        $('#latestCorrect').text(response.data.latest_test.so_cau_dung);
-                        $('#latestWrong').text(response.data.latest_test.so_cau_sai);
-                    } else {
-                        $('#latestId').text('Chưa có bài thi');
-                        $('#latestScore').text('-');
-                        $('#latestTime').text('-');
-                        $('#latestCorrect').text('-');
-                        $('#latestWrong').text('-');
-                    }
+                    document.getElementById('studentName').innerText = data.data.student_name;
+                    document.getElementById('totalTests').innerText = data.data.total_tests;
+                    document.getElementById('avgScore').innerText = data.data.avg_score.toFixed(2);
+                    document.getElementById('avgTime').innerText = (data.data.avg_time / 60).toFixed(2);
 
                     // Cập nhật danh sách bài thi
-                    $('#testListBody').empty();
-                    if (response.data.tests && response.data.tests.length > 0) {
-                        response.data.tests.forEach(function(test) {
-                            var row = `<tr>
-                                <td>${test.id_bai_thi}</td>
-                                <td>${test.so_diem}</td>
-                                <td>${(test.thoi_gian_thi / 60).toFixed(2)}</td>
-                                <td>${test.so_cau_dung}</td>
-                                <td>${test.so_cau_sai}</td>
-                            </tr>`;
-                            $('#testListBody').append(row);
+                    const testListBody = document.getElementById('testListBody');
+                    testListBody.innerHTML = ''; // Xóa nội dung cũ
+                    if (data.data.tests && data.data.tests.length > 0) {
+                        data.data.tests.forEach(test => {
+                            const row = `
+                                <tr>
+                                    <td>${test.id_bai_thi}</td>
+                                    <td>${test.so_diem}</td>
+                                    <td>${(test.thoi_gian_thi / 60).toFixed(2)}</td>
+                                    <td>${test.so_cau_dung}</td>
+                                    <td>${test.so_cau_sai}</td>
+                                </tr>`;
+                            testListBody.insertAdjacentHTML('beforeend', row);
                         });
                     } else {
-                        $('#testListBody').append('<tr><td colspan="5">Chưa có bài thi</td></tr>');
+                        testListBody.innerHTML = '<tr><td colspan="5">Chưa có bài thi</td></tr>';
                     }
 
                     // Hiển thị modal ngay lập tức
-                    $('#statsModal').css('display', 'block');
+                    document.getElementById('statsModal').style.display = 'block';
                 } else {
-                    alert('Lỗi: ' + response.message);
+                    alert('Lỗi: ' + data.message);
                 }
-            },
-            error: function() {
+            })
+            .catch(error => {
                 alert('Đã xảy ra lỗi khi tải dữ liệu.');
-            }
+                console.error('Error:', error);
+            });
         });
     });
 
-    // Xử lý đóng modal
-    $('.close').on('click', function() {
-        $('#statsModal').css('display', 'none');
+    // Xử lý đóng modal khi nhấp vào nút "×"
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('statsModal').style.display = 'none';
     });
 
     // Đóng modal khi nhấp ra ngoài
-    $(window).on('click', function(event) {
+    window.addEventListener('click', function(event) {
         if (event.target.id === 'statsModal') {
-            $('#statsModal').css('display', 'none');
+            document.getElementById('statsModal').style.display = 'none';
         }
+    });
+});document.addEventListener('DOMContentLoaded', function() {
+    // Lấy tất cả các nút "Xem chi tiết"
+    const editButtons = document.querySelectorAll('.editBtn');
+    
+    // Thêm sự kiện click cho từng nút
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const studentId = this.getAttribute('data-id');
+            // Chuyển hướng đến trang chi tiết sinh viên
+            window.location.href = `student_details.php?student_id=${encodeURIComponent(studentId)}`;
+        });
     });
 });
