@@ -108,10 +108,10 @@ h2 {
   color: #fff;
   font-weight: 500;
 }
-
+/* 
 .answer-label:hover {
-  background: #e9ecef;
-}
+  background: #0000CD;
+} */
 
 .answer-label.correct-answer:hover,
 .answer-label.incorrect:hover {
