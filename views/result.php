@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="result-container">
-        
+
         <h2>Kết quả bài thi</h2>
         <div class = "result-summary">
         <p><strong>Số câu đúng:</strong> <?= $correct ?></p>

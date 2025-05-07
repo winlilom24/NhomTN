@@ -56,7 +56,7 @@ session_start();
         const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
         return match ? match[2] : null;
     }
-
+    
     function setCookie(name, value, days) {
         const date = new Date();
         date.setTime(date.getTime() + days * 864e5);
@@ -73,6 +73,7 @@ session_start();
             $('#rememberMe').prop('checked', true);
         }
 
+        //thay đổi hiển thị mật khẩu
         $('.toggle-password').click(() => {
             const input = $('#password');
             const icon = $('.toggle-password ion-icon');
@@ -80,7 +81,8 @@ session_start();
             input.attr('type', isText ? 'password' : 'text');
             icon.attr('name', isText ? 'eye' : 'eye-off');
         });
-
+        
+        //lấy tk và mk nếu chọn nhớ mật khẩu
         $('#form-dangnhap').submit(() => {
             const remember = $('#rememberMe').is(':checked');
             remember

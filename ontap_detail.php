@@ -1,10 +1,9 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'duantnnhom');
-$conn->set_charset('utf8');
+require_once __DIR__ . '/../core/Database.php'; 
 
 $chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
 $sql = "SELECT * FROM cau_hoi WHERE chapter = $chapter ORDER BY id ASC LIMIT 40";
-$result = $conn->query($sql);
+$result = mysqli_query($conn, $sql);
 
 $count = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -12,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['answers'] as $id => $answer) {
         // Lấy đáp án đúng từ DB
         $sql_ans = "SELECT answer FROM cau_hoi WHERE id = $id";
-        $res_ans = $conn->query($sql_ans);
-        $row_ans = $res_ans->fetch_assoc();
+        $res_ans = mysqli_query($conn, $sql_ans);
+        $row_ans = mysqli_fetch_assoc($res_ans);
         if (strtoupper($answer) == strtoupper($row_ans['answer'])) {
             $count++;
         }
@@ -22,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -33,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Ôn tập chương <?= $chapter ?></h1>
     <?php if ($count !== null): ?>
-        <h2>Bạn đúng <?= $count   ?> / <?= count($_POST['answers']) ?> câu!</h2>
+        <h2>Bạn đúng <?= $count ?> / <?= count($_POST['answers']) ?> câu!</h2>
         <a href="ontap_detail.php?chapter=<?= $chapter ?>">Làm lại</a>
     <?php endif; ?>
-    <?php if ($result && $result->num_rows > 0 &&  $count  === null): ?>
+    <?php if ($result && mysqli_num_rows($result) > 0 &&  $count === null): ?>
         <form method="post">
             <?php $i = 1;
-            while ($row = $result->fetch_assoc()): ?>
+            while ($row = mysqli_fetch_assoc($result)): ?>
                 <div style="margin-bottom:18px;">
                     <b>Câu <?= $i ?>:</b> <?= htmlspecialchars($row['question']) ?><br>
                     <?php foreach (['A', 'B', 'C', 'D'] as $option): ?>
@@ -54,9 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             endwhile; ?>
             <button type="submit" class="ontap-btn">Nộp bài ôn tập</button>
         </form>
-    <?php elseif ($count  === null): ?>
+    <?php elseif ($count === null): ?>
         <p>Không có dữ liệu cho chương này.</p>
     <?php endif; ?>
 </body>
 
 </html>
+
+<?php
+// Đóng kết nối sau khi hoàn thành
+mysqli_free_result($result);
+mysqli_close($conn);
+?>

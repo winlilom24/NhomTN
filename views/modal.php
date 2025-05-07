@@ -29,7 +29,7 @@
             </form>
         </div>
     </div>
-
+<!-- Modal để cập nhật câu hỏi -->
 <div id="editModal" style="display:none;">
     <div class="modal-content">
         <span class="close">&times;</span>

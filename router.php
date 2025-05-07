@@ -11,9 +11,6 @@ switch ($page) {
     case 'homeAdmin':
         header('Location: views/homeAdmin.php');
         break;
-    case 'homeAdmin':
-        header('Location: views/homeAdmin.php');
-        break;
     case 'exam':
         require_once 'controllers/exam_handler.php';
         start_exam();

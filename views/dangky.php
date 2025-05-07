@@ -20,8 +20,6 @@ load_header();
                     <div style="text-align: center; margin-bottom: 20px;">
                         <?php if ($_GET['message'] === 'success'): ?>
                             <div style="color: green;">Đăng ký thành công! <a href="dangnhap.php">Đăng nhập</a></div>
-                        <?php elseif ($_GET['message'] === 'error'): ?>
-                            <div style="color: red;">Có lỗi xảy ra, vui lòng thử lại!</div>
                         <?php elseif ($_GET['message'] === 'exist'): ?>
                             <div style="color: orange;">Tên đăng nhập đã tồn tại!</div>
                         <?php endif; ?>

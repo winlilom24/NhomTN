@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/result_functions.php';
 
+//hàm hiển kết quả
 function show_result() {
     session_start();
 
@@ -10,6 +11,6 @@ function show_result() {
     }
 
     $result = calculate_result($_SESSION);
-    extract($result);
+    extract($result);                       //giải nén biến result
     include __DIR__ . '/../views/result.php';
 }
