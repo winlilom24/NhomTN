@@ -1,40 +1,65 @@
 <?php
-header("Content-type: application/octet-stream");
-header("Content-Disposition: attachment; filename=thong_tin_chi_tiet_sinh_vien.xls");
-header("Pragma: no-cache");
-header("Expires: 0");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 require_once __DIR__ . '/../core/Database.php';
 
-if (isset($_GET['student_id'])) {
-    $student_id = mysqli_real_escape_string($conn, $_GET['student_id']);
-
-    // Lấy thông tin sinh viên
-    $student_query = "SELECT ho_ten FROM thong_tin WHERE id = '$student_id'";
-    $student_result = mysqli_query($conn, $student_query);
-    $student = mysqli_fetch_assoc($student_result);
-
-    // Lấy thống kê bài thi
-    $stats_query = "
-        SELECT 
-            COUNT(*) as total_tests,
-            AVG(so_diem) as avg_score,
-            AVG(thoi_gian_thi) as avg_time
-        FROM ket_qua_thi
-        WHERE id_ng_dung = '$student_id' AND id_bai_thi != '0'
-    ";
-    $stats_result = mysqli_query($conn, $stats_query);
-    $stats = mysqli_fetch_assoc($stats_result);
-
-    // Lấy danh sách bài thi
-    $tests_query = "
-        SELECT id_bai_thi, so_diem, thoi_gian_thi, so_cau_dung, so_cau_sai
-        FROM ket_qua_thi
-        WHERE id_ng_dung = '$student_id' AND id_bai_thi != '0'
-        ORDER BY id_bai_thi DESC
-    ";
-    $tests_result = mysqli_query($conn, $tests_query);
+// Kiểm tra student_id
+if (!isset($_GET['student_id'])) {
+    header("Location: studentlist.php");
+    exit();
 }
+
+$student_id = mysqli_real_escape_string($conn, $_GET['student_id']);
+
+// Lấy thông tin sinh viên
+$student_query = "SELECT ho_ten FROM thong_tin WHERE id = '$student_id'";
+$student_result = mysqli_query($conn, $student_query);
+
+if (!$student_result || mysqli_num_rows($student_result) == 0) {
+    header("Location: studentlist.php");
+    exit();
+}
+$student = mysqli_fetch_assoc($student_result);
+
+// Tạo tên file động, giữ tiếng Việt
+$ho_ten = $student['ho_ten'];
+// Loại bỏ ký tự không hợp lệ cho tên file, giữ dấu tiếng Việt
+$invalid_chars = ['\\', '/', ':', '*', '?', '"', '<', '>', '|'];
+$clean_ho_ten = str_replace($invalid_chars, '', trim($ho_ten));
+
+$filename = "Thông tin chi tiết sinh viên " . $clean_ho_ten . ".xls";
+
+// Mã hóa tên file cho header
+$encoded_filename = rawurlencode($filename);
+
+// Thiết lập header
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=\"$filename\"; filename*=UTF-8''$encoded_filename");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+// Lấy thống kê bài thi
+$stats_query = "
+    SELECT 
+        COUNT(*) as total_tests,
+        AVG(so_diem) as avg_score,
+        AVG(thoi_gian_thi) as avg_time
+    FROM ket_qua_thi
+    WHERE id_ng_dung = '$student_id' AND id_bai_thi != '0'
+";
+$stats_result = mysqli_query($conn, $stats_query);
+$stats = mysqli_fetch_assoc($stats_result);
+
+// Lấy danh sách bài thi
+$tests_query = "
+    SELECT id_bai_thi, so_diem, thoi_gian_thi, so_cau_dung, so_cau_sai
+    FROM ket_qua_thi
+    WHERE id_ng_dung = '$student_id' AND id_bai_thi != '0'
+    ORDER BY id_bai_thi DESC
+";
+$tests_result = mysqli_query($conn, $tests_query);
 ?>
 
 <meta charset="utf-8" />
