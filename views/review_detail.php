@@ -13,8 +13,6 @@
 </head>
 <body>
     <div class="result-container">
-        <br>
-        <br>
         <h2>Chi tiết bài thi</h2>
         <?php foreach ($questions as $index => $q): ?>
             <div class="questionBox">

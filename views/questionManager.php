@@ -37,7 +37,7 @@
              <?php
             $sotrangdl = $GLOBALS['sotrangdl'];
             $page = $GLOBALS['page'];
-            $max_buttons = 5; // Số nút tối đa muốn hiển thị
+            $max_buttons = 10; // Số nút tối đa muốn hiển thị
              $half_buttons = floor($max_buttons / 2); // Số nút hiển thị mỗi bên của trang hiện tại
 
             // Tính toán trang bắt đầu và kết thúc
