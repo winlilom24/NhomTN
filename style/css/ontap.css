@@ -1,0 +1,73 @@
+body {
+    background: #f6f8fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.ontap-header {
+    background: #fff;
+    padding: 32px 0 16px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 32px;
+}
+
+.ontap-header h1 {
+    color: #27ae60;
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.ontap-header p {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.ontap-container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.ontap-topic {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(39, 174, 96, 0.08);
+    padding: 32px 24px;
+    width: 260px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.ontap-topic:hover {
+    box-shadow: 0 8px 32px rgba(39, 174, 96, 0.16);
+}
+
+.ontap-topic h2 {
+    color: #27ae60;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.ontap-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #27ae60 60%, #2ecc71 100%);
+    color: #fff;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(39, 174, 96, 0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.ontap-btn:hover {
+    background: linear-gradient(90deg, #219150 60%, #27ae60 100%);
+    box-shadow: 0 4px 16px rgba(39, 174, 96, 0.18);
+    color: #fff;
+}
