@@ -10,11 +10,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $answer = $_POST['answer'] ?? '';
     $chapter = $_POST['chapter'] ?? '';
 
-    $stmt = $conn->prepare("INSERT INTO cau_hoi (question, A, B, C, D, answer, chapter) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $question, $A, $B, $C, $D, $answer, $chapter);
+    $sql = "INSERT INTO cau_hoi (question, A, B, C, D, answer, chapter) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
 
-    echo $stmt->execute() ? "Đã thêm câu hỏi." : "Lỗi thêm: " . $stmt->error;
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "sssssss", $question, $A, $B, $C, $D, $answer, $chapter);
+        if (mysqli_stmt_execute($stmt)) {
+            echo "Đã thêm câu hỏi thành công!";
+        } else {
+            echo "Lỗi thêm!";
+        }
+        mysqli_stmt_close($stmt);
+    } else {
+        echo "Lỗi chuẩn bị câu lệnh!";
+    }
 
-    $stmt->close();
-    $conn->close();
+    mysqli_close($conn);
 }

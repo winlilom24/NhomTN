@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/question_functions.php';
 
+//hàm bắt đầu thi
 function start_exam() {
     session_start();
 
@@ -20,6 +21,7 @@ function start_exam() {
     include __DIR__ . '/../views/exam.php';
 }
 
+//hàm xử lí khi lưu đáp án
 function handle_exam_submit($cur_question) {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!isset($_POST['answer'])) {

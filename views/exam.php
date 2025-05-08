@@ -10,25 +10,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-<?php
+    <?php
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
+
+        //load header cho trang làm bài
         require __DIR__ . '/../site3.php';
         load_headerExam();
-        $cur_question = $_GET['question'] ?? 1;
-        $question = $_SESSION['questions'][$cur_question];
-        $selected = $_SESSION['answers'][$cur_question] ?? '';
-        ?>
+
+        //lấy thông tin câu hỏi
+        $cur_question = $_GET['question'] ?? 1; //số cấu
+        $question = $_SESSION['questions'][$cur_question]; //nội dung câu hỏi và lựa chọn 
+        $selected = $_SESSION['answers'][$cur_question] ?? ''; //đáp án đã chọn nếu có
+    ?>
+
 <div class="container">
     <div class="exam">
         <form method="POST">
+<!-- hiển thị thời gian làm bài -->
             <div style="text-align: left; font-weight: bold; color: red;">
-                ⏳ Thời gian còn lại: <span id="countdown">Đang tải...</span>
+                ⏳ Thời gian còn lại: <span id="countdown">Đang tải...</span> 
             </div>
 
             <h5>Câu <?= $cur_question ?>: <?= $question['question'] ?></h5>
 
+<!-- hiển thị các lựa chọn -->
             <?php foreach (['A', 'B', 'C', 'D'] as $option): ?>
                 <label>
                     <input type="radio" name="answer" value="<?= $option ?>" <?= $selected === $option ? 'checked' : '' ?>>
@@ -47,13 +54,14 @@
             <?php for ($i = 1; $i <= 40; $i++): ?>
                 <li type="none">
                     <button class="question-btn"
-                            <?= isset($_SESSION['answers'][$i]) ? 'style="background-color: #45a049; color: white;"' : '' ?>
+                        <?= isset($_SESSION['answers'][$i]) ? 'style="background-color: #45a049; color: white;"' : '' ?>
                             data-id="<?= $i ?>">
                         <?= $i ?>
                     </button>
                 </li>
             <?php endfor; ?>
         </div>
+<!-- lấy số câu đã làm từ session -->
         <div class="question-done">
             <p>Số câu đã làm: <span id="answered"><?= count($_SESSION['answers'] ?? []) ?></span>/40</p>
         </div>
@@ -61,7 +69,7 @@
 </div>
 
 <script>
-    // Điều hướng khi bấm vào nút số câu
+    //Điều hướng khi bấm vào nút số câu
     $(function () {
         $(".question-btn").click(function () {
             const questionId = $(this).data("id");
@@ -69,13 +77,13 @@
         });
     });
 
-    // Đếm ngược thời gian
+    //Đếm ngược thời gian
     <?php
     $remaining_seconds = ($_SESSION['quiz_start_time'] + $_SESSION['quiz_duration']) - time();
     $remaining_seconds = max($remaining_seconds, 0); // Không để âm
     ?>
     
-    // JS nhận số giây còn lại từ server
+    //JS nhận số giây còn lại từ server
     let remaining = <?= $remaining_seconds ?>;
 
     function updateCountdown() {

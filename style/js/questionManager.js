@@ -2,7 +2,9 @@ $(document).ready(function () {
   let currentId = null;
 
   // Mở modal thêm
-  $("#add").click(() => $("#modal").show());
+  $("#add").click(function () {
+    $("#modal").show();
+  });
 
   // Đóng modal
   $(".close").click(function () {

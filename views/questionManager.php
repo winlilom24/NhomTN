@@ -7,11 +7,18 @@
     <!-- <link rel="stylesheet" href="../style/css/modal.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../style/css/questionManager.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 
-    <button id="add">➕ Thêm câu hỏi</button>
-    
+    <div class="header-controls">
+        <a href= "homeAdmin.php">
+        <button id="back"><ion-icon name="caret-back-outline"></ion-icon>Quay lại</button>
+        </a>
+
+        <button id="add">➕ Thêm câu hỏi</button>
+    </div>
     <div class="cau_hoi">
         <table border="1">
             <thead>
@@ -37,7 +44,7 @@
              <?php
             $sotrangdl = $GLOBALS['sotrangdl'];
             $page = $GLOBALS['page'];
-            $max_buttons = 5; // Số nút tối đa muốn hiển thị
+            $max_buttons = 10; // Số nút tối đa muốn hiển thị
              $half_buttons = floor($max_buttons / 2); // Số nút hiển thị mỗi bên của trang hiện tại
 
             // Tính toán trang bắt đầu và kết thúc
