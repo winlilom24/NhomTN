@@ -19,8 +19,9 @@
 
         <?php foreach ($results as $index => $q): ?>
             <div class="questionBox">
+<!-- hiển thị câu hỏi  -->
                 <h5>Câu <?= $index + 1 ?>: <?= $q['question'] ?></h5>
-
+<!-- hiển thị các đáp án  -->
                 <?php foreach (['A', 'B', 'C', 'D'] as $option): ?>
                     <?php
                         $isCorrect = ($q['correct_answer'] == $option);

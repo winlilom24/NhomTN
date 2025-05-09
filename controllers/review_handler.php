@@ -8,6 +8,7 @@ function list_tests() {
         exit();
     }
     require_once __DIR__ . '/../core/Database.php';
+    //lấy ds bài thi theo thứ tự mới nhất của user_id
     $stmt = mysqli_prepare($conn, "
         SELECT id_bai_thi, so_cau_dung, so_cau_sai, so_diem, thoi_gian_thi 
         FROM ket_qua_thi 
@@ -18,7 +19,7 @@ function list_tests() {
     mysqli_stmt_bind_param($stmt, "s", $user_id);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    $tests = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $tests = mysqli_fetch_all($result, MYSQLI_ASSOC); //lấy toàn bộ dữ liệu
     mysqli_stmt_close($stmt);
 
     include __DIR__ . '/../views/review_list.php';

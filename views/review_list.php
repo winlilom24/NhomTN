@@ -1,10 +1,11 @@
 <?php
-        require __DIR__ . '/../site5.php';
-        load_headerList();
+    require __DIR__ . '/../site5.php';
+    load_headerList();
 ?>
 <?php
+//phân trang
 $page = isset($_GET['page_num']) ? $_GET['page_num'] : 1;
-$limit = 5;
+$limit = 5;                         //sô bài làm trên 1 trang
 $from = ($page - 1) * $limit;
 $so_bai = count($tests);
 $so_trang = ceil($so_bai / $limit);
@@ -31,7 +32,10 @@ $so_trang = ceil($so_bai / $limit);
             </tr>
         </thead>
         <tbody>
-            <?php foreach (array_slice($tests, $from, $limit) as $index => $test): ?>
+            <?php 
+                //chỉ lấy trong $test các hàng từ $from và lấy đúng $limit hàng
+                foreach (array_slice($tests, $from, $limit) as $index => $test): 
+            ?>
                 <tr>
                     <td><?= $from + $index + 1 ?></td>
                     <td>

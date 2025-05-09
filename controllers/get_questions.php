@@ -1,18 +1,16 @@
 <?php
 require_once __DIR__ . '/../core/Database.php';       
 
+//lấy gói câu hỏi theo phân trang
 $sodongtrentrang = 25;
-//lấy số trang mặc định là 1
-$page = isset($_GET['trang']) && is_numeric($_GET['trang']) ? (int)$_GET['trang'] : 1;
-if ($page < 1) $page = 1;
-
+$page = isset($_GET['trang']) ? (int)$_GET['trang'] : 1;
 $sql = "SELECT * FROM cau_hoi";
 $result = mysqli_query($conn, $sql);
 $sodongdulieu= mysqli_num_rows($result);
 $sotrangdl= ceil($sodongdulieu/$sodongtrentrang);
 $vtbd = ($page-1) *$sodongtrentrang;
-$strcompt = "SELECT * FROM cau_hoi ORDER BY id ASC LIMIT {$vtbd}, {$sodongtrentrang}";
-$kqpt = mysqli_query($conn,$strcompt);
+$sqltheotrang = "SELECT * FROM cau_hoi ORDER BY id ASC LIMIT {$vtbd}, {$sodongtrentrang}";
+$kqpt = mysqli_query($conn,$sqltheotrang);
 $stt = $vtbd +1;
 
 while ($row = mysqli_fetch_assoc($kqpt)) {
@@ -37,6 +35,7 @@ if (mysqli_num_rows($kqpt) == 0) {
     echo "<tr><td colspan='9' style='padding: 10px; text-align: center;'>Không có dữ liệu</td></tr>";
 }
 
+//tạo biến siêu toàn cục để phân trang trong questionManager.php 
 $GLOBALS['sotrangdl'] = $sotrangdl;
 $GLOBALS['page'] = $page;
 ?>
