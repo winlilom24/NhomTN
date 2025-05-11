@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    require __DIR__ . '/../site5.php';
+    load_headerList();
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -5,6 +11,9 @@
     <meta charset="UTF-8">
     <title>Ôn tập</title>
     <link rel="stylesheet" href="style/css/ontap.css">
+    <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="shortcut icon" href="style/icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>

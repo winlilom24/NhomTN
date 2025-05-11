@@ -1,5 +1,8 @@
 <?php
+session_start();
 require_once __DIR__ . '/../core/Database.php'; 
+require __DIR__ . '/../site6.php';
+load_headerReview();
 
 $chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
 $sql = "SELECT * FROM cau_hoi WHERE chapter = $chapter ORDER BY id ASC LIMIT 40";
@@ -27,6 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../style/css/ontap_detail.css">
+    <link rel="stylesheet" href="../style/css/headerExam.css"> 
+    <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Ôn tập chương <?= $chapter ?></title>
 </head>
 
