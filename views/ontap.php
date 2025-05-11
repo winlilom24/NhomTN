@@ -15,11 +15,11 @@
     <div class="ontap-container">
         <div class="ontap-topic">
             <h2>Chương 1</h2>
-            <a href="ontap_detail.php?chapter=1" class="ontap-btn">Bắt đầu ôn tập</a>
+            <a href="views/ontap_detail.php?chapter=1" class="ontap-btn">Bắt đầu ôn tập</a>
         </div>
         <div class="ontap-topic">
             <h2>Chương 2</h2>
-            <a href="ontap_detail.php?chapter=2" class="ontap-btn">Bắt đầu ôn tập</a>
+            <a href="views/ontap_detail.php?chapter=2" class="ontap-btn">Bắt đầu ôn tập</a>
         </div>
         <div class="ontap-topic">
             <h2>Chương 3</h2>
