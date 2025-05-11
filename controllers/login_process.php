@@ -47,6 +47,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tk'])) {
         $_SESSION['role'] = $role;
         // $_SESSION['login_success'] = true;
 
+        $remember = isset($_POST['rememberMe']); // checkbox
+
+        if ($remember) {
+        setcookie('username', $tendn, time() + (86400 * 30),"/"); // 30 ngày
+        setcookie('password', $_POST['pass'], time() + (86400 * 30),"/"); 
+        } else {
+        // Xóa cookie nếu không muốn nhớ
+        setcookie('username', '', time() - 3600, "/");
+        setcookie('password', '', time() - 3600, "/");
+        }
+
         header("Location:../views/homeAfterLogin.php");
         exit();
     } else {
