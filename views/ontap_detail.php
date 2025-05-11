@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/core/Database.php'; 
+require_once __DIR__ . '/../core/Database.php'; 
 
 $chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
 $sql = "SELECT * FROM cau_hoi WHERE chapter = $chapter ORDER BY id ASC LIMIT 40";
