@@ -1,105 +1,3 @@
-
-/* === Header Styles (gốc + bổ sung từ headerExam.css) === */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 40px;
-  background-color: #0073e6;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  background: none;
-  border-radius: 0;
-  padding: 0;
-}
-
-.logo {
-  width: 60px;
-  border-radius: 30px;
-  margin-right: 15px;
-  border: 2px solid white;
-  transition: transform 0.3s ease;
-  background: none;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-header h1 {
-  color: white;
-  margin: 0;
-  font-size: 1.8rem;
-  text-align: left;
-}
-
-.user-name {
-  font-size: 18px;
-  color: #ffe600;
-  font-weight: bold;
-  padding-left: 250px;
-}
-
-.user-menu {
-  position: relative;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.user-menu i {
-  font-size: 30px;
-}
-
-.user-menu .dropdown,
-.dropdown {
-  position: absolute;
-  right: 0;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.user-menu:hover .dropdown {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* CHỈNH DROPDOWN MENU CHO GIỐNG headerExam.css */
-.dropdown a {
-  display: block;
-  padding: 10px;
-  width: 100px;
-  text-decoration: none;
-  color: #333;
-  background: white;
-  border-radius: 0;
-  font-size: 1rem;
-  text-align: left;
-  box-shadow: none;
-  margin: 0;
-  transition: background 0.2s;
-}
-
-.dropdown a:hover {
-  background: #f1f1f1;
-  color: #000;
-}
-
 /* === Content Styles giữ nguyên từ file gốc === */
 body {
   background: #f6f8fa;
@@ -123,20 +21,6 @@ h2 {
   font-size: 1.3rem;
 }
 
-a {
-  display: inline-block;
-  margin: 0 auto 24px auto;
-  background: linear-gradient(90deg, #3b82f6 60%, #4a8cf7 100%);
-  color: #fff;
-  padding: 10px 28px;
-  border-radius: 22px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(39, 174, 96, 0.1);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
 a img.logo {
   background: none;
   border-radius: 2;
@@ -149,7 +33,7 @@ a img.logo:hover {
   transform: scale(1.05);
 }
 
-a:hover {
+a :hover {
   background: linear-gradient(90deg, #3b82f6 60%, #468af7 100%);
   color: #fff;
 }
@@ -189,7 +73,7 @@ input[type="radio"] {
 button[type="submit"] {
   display: block;
   margin: 32px auto 0 auto;
-  background: linear-gradient(90deg, #3b82f6 60%, #3b82f6 100%);
+  background: linear-gradient(90deg, #3b82f6 60%, #4182ea 100%);
   color: #fff;
   padding: 12px 36px;
   border-radius: 24px;
@@ -203,6 +87,97 @@ button[type="submit"] {
 
 .ontap-btn:hover,
 button[type="submit"]:hover {
-  background: linear-gradient(90deg, #3b82f6 60%, #3b82f6 100%);
+  background: linear-gradient(90deg, #3b82f6 60%, #4a9cef 100%);
   color: #fff;
+}
+
+#again {
+  color: white;
+  text-decoration: none;
+}
+
+#again:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-item {
+  background: #f9fafb;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.result-item.correct {
+  background: #d1fae5;
+}
+
+.result-item.incorrect {
+  background: #fee2e2;
+}
+
+.result-option {
+  padding: 6px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  background-color: #f9fafb;
+}
+
+.result-option.correct-answer {
+  background-color: #bbf7d0;
+}
+
+.result-option.user-answer {
+  background-color: #fecaca;
+}
+
+.result-option em {
+  color: #2563eb;
+  font-style: normal;
+  font-weight: 500;
+}
+.result-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-item {
+  background: #f9fafb;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+
+.result-item.correct {
+  background: #d1fae5;
+}
+
+.result-item.incorrect {
+  background: #fee2e2;
+}
+
+.result-option {
+  padding: 6px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  background-color: #f9fafb;
+}
+
+.result-option.correct-answer {
+  background-color: #bbf7d0;
+}
+
+.result-option.user-answer {
+  background-color: #fecaca;
+}
+
+.result-option em {
+  color: #2563eb;
+  font-style: normal;
+  font-weight: 500;
 }
