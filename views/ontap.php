@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    require __DIR__ . '/../site5.php';
-    load_headerList();
+session_start();
+require __DIR__ . '/../site5.php';
+load_headerList();
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>Ôn tập</title>
     <link rel="stylesheet" href="style/css/ontap.css">
-    <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="stylesheet" href="style/css/headerExam.css">
     <link rel="shortcut icon" href="style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -32,7 +32,7 @@
         </div>
         <div class="ontap-topic">
             <h2>Chương 3</h2>
-            <a href="ontap_detail.php?chapter=3" class="ontap-btn">Bắt đầu ôn tập</a>
+            <a href="views/ontap_detail.php?chapter=3" class="ontap-btn">Bắt đầu ôn tập</a>
         </div>
     </div>
 </body>
