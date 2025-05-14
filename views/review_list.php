@@ -16,6 +16,7 @@ $so_trang = ceil($so_bai / $limit);
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/css/review.css">
     <link rel="stylesheet" href="style/css/headerExam.css"> 
+    <link rel="shortcut icon" href="./style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Bài thi đã làm</title>
 </head>

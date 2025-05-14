@@ -64,6 +64,7 @@ $tests_result = mysqli_query($conn, $tests_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi tiết sinh viên - <?php echo htmlspecialchars($student['ho_ten']); ?></title>
+    <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../style/css/studentManager.css">
 </head>
 <body>

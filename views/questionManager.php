@@ -6,6 +6,7 @@
     <title>Quản lý câu hỏi</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../style/css/questionManager.css">
+    <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
 <body>

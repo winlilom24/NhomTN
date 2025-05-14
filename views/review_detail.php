@@ -9,6 +9,7 @@
     <title>Chi tiết bài thi</title>
     <link rel="stylesheet" href="style/css/trangNopBai.css">
     <link rel="stylesheet" href="style/css/headerDetail.css"> 
+    <link rel="shortcut icon" href="./style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>

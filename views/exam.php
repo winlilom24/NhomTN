@@ -5,7 +5,7 @@
     <title>Làm bài</title>
     <link rel="stylesheet" href="style/css/trangLamBai.css">
     <link rel="stylesheet" href="style/css/headerExam.css">
-    <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
