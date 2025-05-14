@@ -1,6 +1,3 @@
-<?php
-    session_start();
-?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -24,7 +21,7 @@
 
         <div class="user-area">
             <div class="user-name">
-                Chào mừng <?php echo isset($_SESSION['ho_ten']) ? htmlspecialchars($_SESSION['ho_ten']) : 'Admin'; ?>
+                Chào mừng Admin
             </div>
             <div class="user-menu">
                 <i class="fa-solid fa-user"></i>
