@@ -20,7 +20,7 @@ session_start();
         <div class="form-box">
             <div class="form-value">
                 <form method="POST" id="form-dangnhap" action="../controllers/login_process.php">
-                    <h1 class="form-heading">Đăng nhập</h1>
+                    <h1 style="font-size: 2em; color: rgb(36, 20, 20);  text-align: center;">Đăng nhập</h1>
 
                     <div class="form-group">
                         <ion-icon name="person-circle-outline"></ion-icon>
