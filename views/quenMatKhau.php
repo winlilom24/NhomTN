@@ -17,14 +17,16 @@ use PHPMailer\PHPMailer\Exception;
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $conn = Database::connect();
     $email = trim($_POST['email']);
 
     // Kiểm tra email có tồn tại không (dùng prepared statements)
-    $stmt = $conn->prepare("SELECT * FROM tai_khoan WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT * FROM tai_khoan WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($result);
+
 
     if ($dong = $result->fetch_assoc()) {
         $token = bin2hex(random_bytes(16));
