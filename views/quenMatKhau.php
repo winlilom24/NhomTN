@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
 $mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'aamf daop kwvb jmzu'; // Tốt nhất lưu file config bên ngoài public_html
+$mailPass = 'urpn gwtb kvzc rcwn'; // Tốt nhất lưu file config bên ngoài public_html
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

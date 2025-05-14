@@ -1,6 +1,19 @@
 <?php
 require_once __DIR__ . '/../core/Database.php'; //lấy kết nối
 
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
+
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+// Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
+$mailUser = 'trananhvu1412@gmail.com';
+$mailPass = 'urpn gwtb kvzc rcwn'; // Tốt nhất lưu file config bên ngoài public_html
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if (isset($_POST['signup'])) {
     //lấy dữ liệu từ form
     $username    = trim($_POST['user']);
@@ -43,6 +56,41 @@ if (isset($_POST['signup'])) {
     mysqli_stmt_bind_param($stmt2, "ssss", $user_id, $username, $md5Password, $email);
     mysqli_stmt_execute($stmt2);
     mysqli_stmt_close($stmt2);
+
+     // Gửi email thông báo đăng ký thành công
+    $mail = new PHPMailer(true);
+    try {
+        // Cấu hình server SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $mailUser;
+        $mail->Password = $mailPass;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
+
+        // Thiết lập người gửi và người nhận
+        $mail->setFrom($mailUser, 'Hệ thống đăng ký');
+        $mail->addAddress($email, $hoten);
+        $mail->CharSet = 'UTF-8';
+
+        // Nội dung email
+        $mail->isHTML(true);
+        $mail->Subject = 'Đăng ký tài khoản thành công';
+        $mail->Body = "
+            <h2>Chào $hoten,</h2>
+            <p>Cảm ơn bạn đã đăng ký tài khoản!</p>
+            <p><strong>Tên đăng nhập:</strong> $username</p>
+            <p><strong>Email:</strong> $email</p>
+            <p>Trân trọng,<br>Hệ thống đăng nhập</p>
+        ";
+        $mail->AltBody = "Chào $hoten,\n\nCảm ơn bạn đã đăng ký tài khoản!\nTên đăng nhập: $username\nEmail: $email\nTrân trọng,\nHệ thống đăng nhập";
+
+        $mail->send();
+    } catch (Exception $e) {
+        // Ghi log lỗi nếu cần
+        error_log("Failed to send email to $email: {$mail->ErrorInfo}");
+    }
 
     //đóng kết nối
     mysqli_close($conn);
