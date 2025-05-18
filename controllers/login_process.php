@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tk'])) {
     }
 
     //tạo câu truy vấn kiểm tra tài khoản
-    $sql = "SELECT id, tai_khoan, vai_tro FROM tai_khoan WHERE tai_khoan = ? AND mat_khau = ?";
+    $sql = "SELECT id, ten_tai_khoan, vai_tro FROM tai_khoan WHERE ten_tai_khoan = ? AND mat_khau = ?";
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param($stmt, "ss", $tendn, $matk);

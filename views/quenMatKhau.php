@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
 $mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'urpn gwtb kvzc rcwn'; // Tốt nhất lưu file config bên ngoài public_html
+$mailPass = 'zniv inwx qeos ymyk'; // Tốt nhất lưu file config bên ngoài public_html
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,28 +17,34 @@ use PHPMailer\PHPMailer\Exception;
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = trim($_POST['email']);
 
+    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
+    
     // Kiểm tra email có tồn tại không (dùng prepared statements)
-    $sql = "SELECT * FROM tai_khoan WHERE email = ?";
+    $sql = "SELECT * FROM tai_khoan WHERE ten_tai_khoan = ? AND email = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_bind_param($stmt, "ss",$username, $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    $row = mysqli_fetch_assoc($result);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        // // Tạo reset_token là số nguyên ngẫu nhiên
+        // $token = random_int(100000, 999999); // Token 6 chữ số, có thể điều chỉnh
+        // // Lưu token_expiry là Unix timestamp
+        // $expiry = time() + 3600; // Hết hạn sau 1 giờ
 
 
-    if ($dong = $result->fetch_assoc()) {
         $token = bin2hex(random_bytes(16));
         $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
         // Cập nhật token
-        $update = $conn->prepare("UPDATE tai_khoan SET reset_token = ?, token_expiry = ? WHERE email = ?");
-        $update->bind_param("sss", $token, $expiry, $email);
+        $update = $conn->prepare("UPDATE tai_khoan SET reset_token = ?, token_expiries = ? WHERE ten_tai_khoan = ? AND email = ?");
+        $update->bind_param("ssss", $token, $expiry,$username, $email);
         $update->execute();
 
         // Link reset
-        $reset_link = "http://localhost/duanDangNhap/reset_password.php?token=$token";
+        $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
 
         // Gửi mail
         $mail = new PHPMailer(true);
@@ -63,6 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $message = "<span style='color:green;'>Link khôi phục đã được gửi tới $email!</span>";
         } catch (Exception $e) {
             $message = "<span style='color:red;'>Không thể gửi email. Lỗi: {$mail->ErrorInfo}</span>";
+            // Xóa token nếu gửi email thất bại
+            mysqli_query($conn, "UPDATE tai_khoan SET reset_token = NULL, token_expiries = NULL WHERE ten_tai_khoan = '$username' AND email = '$email'");
         }
     } else {
         $message = "<span style='color:red;'>Email không tồn tại trong hệ thống!</span>";
@@ -87,6 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="form-value">
                     <form id="forgot-password" method="POST">
                         <h1 class="form-heading">Quên mật khẩu</h1>
+                         <div class="form-group">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            <input type="text" id="username" name="username" placeholder="Tên tài khoản" required>
+                        </div>
                         <div class="form-group">
                             <ion-icon name="mail-outline"></ion-icon>
                             <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
