@@ -29,7 +29,7 @@ if (isset($_POST['signup'])) {
     $md5Password = md5($password); //mã hóa mật khẩu
 
     // Kiểm tra tài khoản tồn tại
-    $sql_check = "SELECT * FROM tai_khoan WHERE tai_khoan = ?";
+    $sql_check = "SELECT * FROM tai_khoan WHERE ten_tai_khoan = ?";
     $checkStmt = mysqli_prepare($conn, $sql_check);
     mysqli_stmt_bind_param($checkStmt, "s", $username);
     mysqli_stmt_execute($checkStmt);
