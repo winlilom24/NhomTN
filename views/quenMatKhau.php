@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
 $mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'hmgy lqmh tqqo otub'; // Tốt nhất lưu file config bên ngoài public_html
+$mailPass = 'igqr oxzo xqkw sxef'; // Tốt nhất lưu file config bên ngoài public_html
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -29,11 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($result)) {
-        // // Tạo reset_token là số nguyên ngẫu nhiên
-        // $token = random_int(100000, 999999); // Token 6 chữ số, có thể điều chỉnh
-        // // Lưu token_expiry là Unix timestamp
-        // $expiry = time() + 3600; // Hết hạn sau 1 giờ
-
 
         $token = bin2hex(random_bytes(16));
         $expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));

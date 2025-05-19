@@ -10,8 +10,8 @@ $success_message = '';
 
 // Kiểm tra token từ URL
 if (isset($_GET['token'])) {
-    $token = mysqli_real_escape_string($conn, $_GET['token']);
-
+    $token = $_GET['token'];
+    
     // Kiểm tra token trong database
     $sql = "SELECT * FROM tai_khoan WHERE reset_token = '$token' AND token_expiries > NOW()";
     $kq = mysqli_query($conn, $sql);
