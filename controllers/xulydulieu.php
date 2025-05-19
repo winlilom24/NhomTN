@@ -50,7 +50,7 @@ if (isset($_POST['signup'])) {
     mysqli_stmt_close($stmt1);
 
     // Thêm vào bảng tai_khoan
-    $sql2 = "INSERT INTO tai_khoan (id, tai_khoan, mat_khau, email) VALUES (?, ?, ?, ?)";
+    $sql2 = "INSERT INTO tai_khoan (id, ten_tai_khoan, mat_khau, email) VALUES (?, ?, ?, ?)";
     $stmt2 = mysqli_prepare($conn, $sql2);
     
     mysqli_stmt_bind_param($stmt2, "ssss", $user_id, $username, $md5Password, $email);
