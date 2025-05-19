@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update->execute();
 
         // Link reset
-//        $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
+    //    $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
         $reset_link = "http://localhost/NhomTN/views/reset_password.php?token=$token";
         // Gửi mail
         $mail = new PHPMailer(true);
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            $mail->setFrom($mailUser, 'Hệ thống đăng nhập');
+            $mail->setFrom($mailUser, 'Hệ thống trắc nghiệm');
             $mail->addAddress($email);
             $mail->CharSet = 'UTF-8';
             $mail->isHTML(true);
