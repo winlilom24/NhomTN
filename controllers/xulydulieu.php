@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
 $mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'urpn gwtb kvzc rcwn'; // Tốt nhất lưu file config bên ngoài public_html
+$mailPass = 'igqr oxzo xqkw sxef'; // Tốt nhất lưu file config bên ngoài public_html
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -70,7 +70,7 @@ if (isset($_POST['signup'])) {
         $mail->Port = 465;
 
         // Thiết lập người gửi và người nhận
-        $mail->setFrom($mailUser, 'Hệ thống đăng ký');
+        $mail->setFrom($mailUser, 'Hệ thống trắc nghiệm');
         $mail->addAddress($email, $hoten);
         $mail->CharSet = 'UTF-8';
 
@@ -82,7 +82,7 @@ if (isset($_POST['signup'])) {
             <p>Cảm ơn bạn đã đăng ký tài khoản!</p>
             <p><strong>Tên đăng nhập:</strong> $username</p>
             <p><strong>Email:</strong> $email</p>
-            <p>Trân trọng,<br>Hệ thống đăng nhập</p>
+            <p>Trân trọng</p>
         ";
         $mail->AltBody = "Chào $hoten,\n\nCảm ơn bạn đã đăng ký tài khoản!\nTên đăng nhập: $username\nEmail: $email\nTrân trọng,\nHệ thống đăng nhập";
 
