@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 // Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
 $mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'zniv inwx qeos ymyk'; // Tốt nhất lưu file config bên ngoài public_html
+$mailPass = 'hmgy lqmh tqqo otub'; // Tốt nhất lưu file config bên ngoài public_html
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -44,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update->execute();
 
         // Link reset
-        $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
-
+//        $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
+        $reset_link = "http://localhost/NhomTN/views/reset_password.php?token=$token";
         // Gửi mail
         $mail = new PHPMailer(true);
         try {
