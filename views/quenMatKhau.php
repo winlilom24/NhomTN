@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail->AltBody = "Chào bạn,\n\nNhấn vào liên kết sau để đặt lại mật khẩu của bạn: $reset_link\n\nLiên kết này có hiệu lực trong 1 giờ.\nTrân trọng,\nHệ thống đăng nhập";
 
             $mail->send();
-            $message = "<span style='color:green;'>Link khôi phục đã được gửi tới $email!</span>";
+            $message = "<span style='color:green;'>Link khôi phục đã được gửi tới gmail của bạn!</span>";
         } catch (Exception $e) {
             $message = "<span style='color:red;'>Không thể gửi email. Lỗi: {$mail->ErrorInfo}</span>";
             // Xóa token nếu gửi email thất bại
