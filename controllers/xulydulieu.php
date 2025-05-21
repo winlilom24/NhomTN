@@ -7,9 +7,7 @@ require '../PHPMailer/src/SMTP.php';
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-// Thông tin cấu hình email tách riêng (bạn nên tạo file .env hoặc config riêng)
-$mailUser = 'trananhvu1412@gmail.com';
-$mailPass = 'igqr oxzo xqkw sxef'; // Tốt nhất lưu file config bên ngoài public_html
+require __Dir__.'/../views/mailAdminAcount.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
