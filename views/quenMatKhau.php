@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Link reset
     //    $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
-        $reset_link = "http://localhost/NhomTN/views/reset_password.php?token=$token";
+        $reset_link = "http://localhost/NhomTN/views/reset_password.php";
         // Gửi mail
         $mail = new PHPMailer(true);
         try {
@@ -53,8 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail->CharSet = 'UTF-8';
             $mail->isHTML(true);
             $mail->Subject = 'Khôi phục mật khẩu';
-            $mail->Body = "Chào bạn,<br><br>Nhấn vào liên kết sau để đặt lại mật khẩu của bạn: <a href='$reset_link'>$reset_link</a><br><br>Liên kết này có hiệu lực trong 1 giờ.<br>Trân trọng,<br>Hệ thống đăng nhập";
-            $mail->AltBody = "Chào bạn,\n\nNhấn vào liên kết sau để đặt lại mật khẩu của bạn: $reset_link\n\nLiên kết này có hiệu lực trong 1 giờ.\nTrân trọng,\nHệ thống đăng nhập";
+            $mail->Body = "Chào bạn,<br><br>Để đặt lại mật khẩu, vui lòng truy cập liên kết sau: <a href='$reset_link'>$reset_link</a><br><br>Sử dụng mã token sau trong trang đặt lại mật khẩu:<br><strong>$token</strong><br><br>Mã token này có hiệu lực trong 1 giờ.<br>Trân trọng,<br>Hệ thống đăng nhập";
+            $mail->AltBody = "Chào bạn,\n\nĐể đặt lại mật khẩu, vui lòng truy cập: $reset_link\n\nSử dụng mã token sau: $token\n\nMã token này có hiệu lực trong 1 giờ.\nTrân trọng,\nHệ thống đăng nhập";
 
             $mail->send();
             $message = "<span style='color:green;'>Link khôi phục đã được gửi tới gmail của bạn!</span>";
