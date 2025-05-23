@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/../site.php';
-load_header();
+require __DIR__ . '/widget/header.php';
 session_start();
 ?>
 <!DOCTYPE html>

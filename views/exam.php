@@ -16,8 +16,7 @@
         }
 
         //load header cho trang làm bài
-        require __DIR__ . '/../site3.php';
-        load_headerExam();
+        require __DIR__ . '/widget/headerExam.php';
 
         //lấy thông tin câu hỏi
         $cur_question = $_GET['question'] ?? 1; //số cấu

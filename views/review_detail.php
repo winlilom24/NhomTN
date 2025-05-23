@@ -1,6 +1,5 @@
 <?php
-    require __DIR__ . '/../site4.php';
-    load_headerDetail();
+    require __DIR__ . '/widget/headerDetail.php';
 ?>
 <!DOCTYPE html>
 <html lang="vi">

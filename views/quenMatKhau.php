@@ -1,6 +1,5 @@
 <?php
-require __DIR__ . '/../site.php';
-load_header();
+require __DIR__ . '/widget/header.php';
 require_once __DIR__ . '/../core/Database.php';
 require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';

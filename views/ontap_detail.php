@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/../core/Database.php';
-require __DIR__ . '/../site6.php';
-load_headerReview();
+require __DIR__ . '/widget/headerReview.php';
 
 $chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
 $count = null;

@@ -1,7 +1,6 @@
 <?php
 session_start();
-require __DIR__ . '/../site5.php';
-load_headerList();
+require __DIR__ . '/widget/headerList.php';
 ?>
 
 <!DOCTYPE html>

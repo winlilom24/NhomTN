@@ -1,7 +1,5 @@
 <?php
-//require './site.php';
-require __DIR__ . '/../site.php';
-load_header();
-load_main();
-load_footer();
+require __DIR__ . '/widget/header.php';
+require __DIR__ . '/widget/main.php';
+require __DIR__ . '/widget/footer.php';
 ?>

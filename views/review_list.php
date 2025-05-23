@@ -1,6 +1,5 @@
 <?php
-    require __DIR__ . '/../site5.php';
-    load_headerList();
+    require __DIR__ . '/widget/headerList.php';
 ?>
 <?php
 //phân trang
