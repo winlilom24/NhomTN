@@ -17,11 +17,15 @@
         <h1>Hệ Thống Thi Trắc Nghiệm Online</h1>
     </div>
     <div class="user-menu">
-        <i class="fa-solid fa-user"></i>
-        <div class="dropdown" id="userDropdown">
-            <a href="./dangnhap.php" id="loginOption">Đăng nhập</a>
-            <a href="./dangky.php" id="registerOption">Đăng ký</a>
-        </div>
+        
+        <div class="user-buttons">
+        <form action="./dangnhap.php" method="get" style="display: inline;">
+            <button type="submit" class="login-btn">Đăng nhập</button>
+        </form>
+        <form action="./dangky.php" method="get" style="display: inline;">
+            <button type="submit" class="register-btn">Đăng ký</button>
+        </form>
+</div>
     </div>     
 </header> 
 </body>

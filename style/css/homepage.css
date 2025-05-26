@@ -52,17 +52,25 @@ header {
   font-size: 30px;
 }
 
-.dropdown {
-  position: absolute;
-  right: 0;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+.user-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.user-buttons button {
+  background-color: rgb(233, 228, 228);
+  color: #0073e6;
+  border: 2px solid #0073e6;
+  padding: 8px 16px;
   border-radius: 6px;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.user-buttons button:hover {
+  background-color: rgb(176, 173, 173);
+  color: #0073e6;
 }
 
 .user-menu:hover .dropdown {
