@@ -24,12 +24,12 @@
                  </div>
             <div class="right">
                 <b>Thông tin liên hệ:</b><br>
-                SĐT: 0123456789 (Hoàng)<br>
-                Email: hoang@gmail.com<br>
+                SĐT: 0248824234 (Admin)<br>
+                Email: admin@gmail.com<br>
                 Facebook:
-                <a href="https://www.facebook.com" target="_blank">Nguyễn Hoàng</a><br>
+                <a href="https://www.facebook.com" target="_blank">Admin</a><br>
                 Zalo:
-                <a href="https://zalo.me" target="_blank">Nguyễn Huy Hoàng</a>
+                <a href="https://zalo.me" target="_blank">Admin</a>
             </div>
         </div>
     </div>
