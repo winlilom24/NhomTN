@@ -30,7 +30,12 @@ switch ($page) {
     case 'baiontap':
         require_once 'views/ontap.php';
         break;
-
+    case 'questionManager':
+        header('Location: views/questionManager.php');
+        break;
+    case 'studentlist':
+        header('Location: views/studentlist.php');
+        break;
     default:
         echo "404 Not Found";
 }
