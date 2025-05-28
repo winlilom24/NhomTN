@@ -28,15 +28,11 @@ $ho_ten = $student['ho_ten'];
 // Loại bỏ ký tự không hợp lệ cho tên file, giữ dấu tiếng Việt
 $invalid_chars = ['\\', '/', ':', '*', '?', '"', '<', '>', '|'];
 $clean_ho_ten = str_replace($invalid_chars, '', trim($ho_ten));
-
 $filename = "Thông tin chi tiết sinh viên " . $clean_ho_ten . ".xls";
-
-// Mã hóa tên file cho header
-$encoded_filename = rawurlencode($filename);
 
 // Thiết lập header
 header("Content-type: application/octet-stream");
-header("Content-Disposition: attachment; filename=\"$filename\"; filename*=UTF-8''$encoded_filename");
+header("Content-Disposition: attachment; filename=\"$filename\"");
 header("Pragma: no-cache");
 header("Expires: 0");
 
