@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/widget/header1.php';
-require __DIR__ . '/widget/main1.php';
-require __DIR__ . '/widget/footer.php';
+require __DIR__ . '/widget/headerAfterLogin.php';
+require __DIR__ . '/widget/mainAfterLogin.php';
+require __DIR__ . '/widget/footerAfterLogin.php';
 ?>
