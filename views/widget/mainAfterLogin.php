@@ -11,11 +11,11 @@
 
 <body>
     <div class="container">
-        <div class="slogan" data-aos="fade-up">
+        <div class="slogan">
             <h2>Học tập là ngọn lửa duy nhất có thể cháy mãi mãi trong tâm hồn một con người.</h2>
             <h2> - Albert Einstein -</h2>
         </div>
-        <div class="content" data-aos="fade-up" data-aos-delay="200">
+        <div class="content">
             <div class="left">
                 <h3>Môn thi: Lịch sử Đảng Cộng sản Việt Nam</h3>
                 <p>Số câu hỏi: <strong>40</strong></p>

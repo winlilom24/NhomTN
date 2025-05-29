@@ -9,11 +9,11 @@
 </head>
 <body>
 <div class="container">
-        <div class="slogan" data-aos="fade-up">
+        <div class="slogan">
             <h2>Học tập là ngọn lửa duy nhất có thể cháy mãi mãi trong tâm hồn một con người.</h2>
             <h2> - Albert Einstein -</h2>
         </div>
-        <div class="content" data-aos="fade-up" data-aos-delay="200">
+        <div class="content">
             <div class="left">Đây là nền tảng thi trắc nghiệm trực tuyến giúp bạn ôn luyện, 
                 kiểm tra kiến thức và nâng cao kỹ năng một cách hiệu quả. 
                 Với giao diện dễ sử dụng, kho đề thi phong phú và đa dạng môn học. <br>
@@ -24,12 +24,10 @@
                  </div>
             <div class="right">
                 <b>Thông tin liên hệ:</b><br>
-                SĐT: 0248824234 (Admin)<br>
-                Email: admin@gmail.com<br>
-                Facebook:
-                <a href="https://www.facebook.com" target="_blank">Admin</a><br>
-                Zalo:
-                <a href="https://zalo.me" target="_blank">Admin</a>
+                <i class="fas fa-phone"></i> SĐT: 0248824234 (Admin)<br>
+                <i class="fas fa-envelope"></i> Email: admin@gmail.com<br>
+                <i class="fab fa-facebook"></i> Facebook:
+                <a href="https://www.facebook.com" target="_blank">Admin</a><br>             
             </div>
         </div>
     </div>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Hệ Thống Thi Trắc Nghiệm</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style/css/homepage.css">
     <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
 </head>
@@ -20,10 +19,10 @@
         
         <div class="user-buttons">
         <form action="./dangnhap.php" method="get" style="display: inline;">
-            <button type="submit" class="login-btn">Đăng nhập</button>
+            <button type="submit">Đăng nhập</button>
         </form>
         <form action="./dangky.php" method="get" style="display: inline;">
-            <button type="submit" class="register-btn">Đăng ký</button>
+            <button type="submit">Đăng ký</button>
         </form>
 </div>
     </div>     
