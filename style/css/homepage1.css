@@ -172,3 +172,9 @@ header {
   margin-top: 20px;
   font-size: 17px;
 }
+.user-name {
+  font-size: 18px;
+  color: #ffe600;
+  font-weight: bold;
+  padding-left: 250px;
+}

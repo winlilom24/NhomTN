@@ -2,14 +2,14 @@
 require_once __DIR__ . '/../core/Database.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $id = $_POST['id'] ?? '';
-    $question = $_POST['question'] ?? '';
-    $A = $_POST['A'] ?? '';
-    $B = $_POST['B'] ?? '';
-    $C = $_POST['C'] ?? '';
-    $D = $_POST['D'] ?? '';
-    $answer = $_POST['answer'] ?? '';
-    $chapter = $_POST['chapter'] ?? '';
+    $id = $_POST['id'] ;
+    $question = $_POST['question'] ;
+    $A = $_POST['A'] ;
+    $B = $_POST['B'] ;
+    $C = $_POST['C'] ;
+    $D = $_POST['D'] ;
+    $answer = $_POST['answer'] ;
+    $chapter = $_POST['chapter'] ;
 
     $sql = "UPDATE cau_hoi SET question=?, A=?, B=?, C=?, D=?, answer=?, chapter=? WHERE id=?";
     $stmt = mysqli_prepare($conn, $sql);

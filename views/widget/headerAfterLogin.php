@@ -10,14 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style/css/homepage1.css">
     <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
-    <style>
-        .user-name {
-            font-size: 18px;
-            color: #ffe600;
-            font-weight: bold;
-            padding-left: 250px;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -29,7 +21,7 @@
         </div>
         <?php if (isset($_SESSION['ho_ten'])): ?>
         <div class="user-name">
-            Chào mừng: <?php echo htmlspecialchars($_SESSION['ho_ten']); ?>
+            Chào mừng: <?php echo $_SESSION['ho_ten']; ?>
         </div>
         <?php endif; ?>
         <div class="user-menu">

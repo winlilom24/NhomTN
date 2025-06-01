@@ -63,7 +63,7 @@ $tests_result = mysqli_query($conn, $tests_query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sinh viên - <?php echo htmlspecialchars($student['ho_ten']); ?></title>
+    <title>Chi tiết sinh viên - <?php echo $student['ho_ten']); ?></title>
     <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../style/css/studentManager.css">
 </head>
@@ -72,12 +72,12 @@ $tests_result = mysqli_query($conn, $tests_query);
         <div class="cau_hoi">
             <h2 class="text-2xl font-bold mb-4">Chi tiết sinh viên</h2>
             <div class="mb-6">
-                <p><strong>Họ tên:</strong> <?php echo htmlspecialchars($student['ho_ten']); ?></p>
+                <p><strong>Họ tên:</strong> <?php echo $student['ho_ten']; ?></p>
                 <p><strong>Số lần làm bài:</strong> <?php echo (int)$stats['total_tests']; ?></p>
                 <p><strong>Điểm trung bình:</strong> <?php echo number_format((float)$stats['avg_score'], 2); ?></p>
                 <p><strong>Thời gian làm bài trung bình:</strong> <?php echo number_format((float)$stats['avg_time'] / 60, 2); ?> phút</p>
                 <div class="button-group mt-4">
-                    <a href="../controllers/export_student_details_to_excel.php?student_id=<?php echo htmlspecialchars($student_id); ?>" class="action-btn">📥 Tải thông tin chi tiết</a>
+                    <a href="../controllers/export_student_details_to_excel.php?student_id=<?php echo $student_id); ?>" class="action-btn">📥 Tải thông tin chi tiết</a>
                     <a href="studentlist.php" class="action-btn"><ion-icon name="caret-back-outline"></ion-icon> Quay lại danh sách</a>
                 </div>
             </div>
@@ -97,11 +97,11 @@ $tests_result = mysqli_query($conn, $tests_query);
                     if (mysqli_num_rows($tests_result) > 0) {
                         while ($test = mysqli_fetch_assoc($tests_result)) {
                             echo "<tr>";
-                            echo "<td>" . htmlspecialchars($test['id_bai_thi']) . "</td>";
-                            echo "<td>" . htmlspecialchars($test['so_diem']) . "</td>";
+                            echo "<td>" . $test['id_bai_thi'] . "</td>";
+                            echo "<td>" . $test['so_diem'] . "</td>";
                             echo "<td>" . number_format($test['thoi_gian_thi'] / 60, 2) . "</td>";
-                            echo "<td>" . htmlspecialchars($test['so_cau_dung']) . "</td>";
-                            echo "<td>" . htmlspecialchars($test['so_cau_sai']) . "</td>";
+                            echo "<td>" . $test['so_cau_dung'] . "</td>";
+                            echo "<td>" . $test['so_cau_sai'] . "</td>";
                             echo "</tr>";
                         }
                     } else {
