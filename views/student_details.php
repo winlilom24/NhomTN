@@ -63,7 +63,7 @@ $tests_result = mysqli_query($conn, $tests_query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết sinh viên - <?php echo $student['ho_ten']); ?></title>
+    <title>Chi tiết sinh viên - <?php echo $student['ho_ten']; ?></title>
     <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../style/css/studentManager.css">
 </head>
@@ -77,7 +77,7 @@ $tests_result = mysqli_query($conn, $tests_query);
                 <p><strong>Điểm trung bình:</strong> <?php echo number_format((float)$stats['avg_score'], 2); ?></p>
                 <p><strong>Thời gian làm bài trung bình:</strong> <?php echo number_format((float)$stats['avg_time'] / 60, 2); ?> phút</p>
                 <div class="button-group mt-4">
-                    <a href="../controllers/export_student_details_to_excel.php?student_id=<?php echo $student_id); ?>" class="action-btn">📥 Tải thông tin chi tiết</a>
+                    <a href="../controllers/export_student_details_to_excel.php?student_id=<?php echo $student_id; ?>" class="action-btn">📥 Tải thông tin chi tiết</a>
                     <a href="studentlist.php" class="action-btn"><ion-icon name="caret-back-outline"></ion-icon> Quay lại danh sách</a>
                 </div>
             </div>
