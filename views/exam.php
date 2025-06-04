@@ -91,10 +91,14 @@
             alert("⏰ Hết giờ! Bài thi sẽ được nộp tự động.");
             window.location.href = "index.php?page=submit";
         } else {
+            const hours = Math.floor(remaining / 3600);
             const minutes = Math.floor((remaining / 60) % 60);
             const seconds = Math.floor(remaining % 60);
             document.getElementById("countdown").textContent = 
-                `00:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                hours.toString().padStart(2, '0') + ":" +
+                minutes.toString().padStart(2, '0') + ":" +
+                seconds.toString().padStart(2, '0');
+
             remaining--;
         }
     }
