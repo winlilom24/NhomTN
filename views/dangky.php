@@ -43,7 +43,7 @@ require __DIR__ . '/widget/header.php';
                     </div>
 
                     <div class="control-from">
-                        <label for="password">Nhập lại mật khẩu *</label>
+                        <label for="confirm-password">Nhập lại mật khẩu *</label>
                         <input type="password" id="confirm-password" name="nmk" value="" required>
                     </div>
 
@@ -68,7 +68,7 @@ require __DIR__ . '/widget/header.php';
                     </div>
 
                     <div class="control-from" id="gender-group">
-                        <label for="gender-female" style="font-weight: bold;"> Giới tính </label>
+                        <label style="font-weight: bold;"> Giới tính </label>
                         <input type="radio" id="gender-male" name="gender" value="Nam"> Nam
                         <input type="radio" id="gender-female" name="gender" value="Nữ"> Nữ
                     </div>
