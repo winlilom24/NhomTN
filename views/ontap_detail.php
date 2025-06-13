@@ -7,7 +7,7 @@ $chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
 $count = null;
 $questions = [];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['answers'])) {
+if (isset($_POST['answers'])) {
     $questions = $_SESSION['questions'] ?? [];
     $correct = 0;
     $evaluated = [];
