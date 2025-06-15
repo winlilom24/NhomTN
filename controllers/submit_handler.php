@@ -40,7 +40,9 @@ save_result_to_db($_SESSION['test_id'], $correct, $wrong, $score, $time_taken, $
 
 // Hiển thị kết quả
 require __DIR__ . '/../views/result.php';
+?>
 
+<?php
 // Hàm lưu kết quả vào CSDL
 function save_result_to_db($test_id, $correct, $wrong, $score, $time, $results) {
     require __DIR__ . '/../core/Database.php';  

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../core/Database.php';        
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (isset($_POST['question'])) {
     $question = $_POST['question'];
     $A = $_POST['A'];
     $B = $_POST['B'];

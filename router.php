@@ -17,7 +17,6 @@ switch ($page) {
         break;
     case 'submit':
         require_once 'controllers/submit_handler.php';
-        show_result();
         break;
     case 'reviewList':
         require_once 'controllers/review_handler.php';
