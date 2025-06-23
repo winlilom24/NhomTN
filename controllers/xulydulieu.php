@@ -14,13 +14,13 @@ use PHPMailer\PHPMailer\Exception;
 
 if (isset($_POST['signup'])) {
     //lấy dữ liệu từ form
-    $username    = trim($_POST['user']);
-    $hoten       = trim($_POST['tkf']);
+    $username    = $_POST['user'];
+    $hoten       = $_POST['tkf'];
     $password    = $_POST['mk'];
-    $email       = trim($_POST['email']);
-    $sodienthoai = trim($_POST['sdt']);
+    $email       = $_POST['email'];
+    $sodienthoai = $_POST['sdt'];
     $ngaysinh    = $_POST['ns'];
-    $diachi      = trim($_POST['diachi']);
+    $diachi      = $_POST['diachi'];
     $gioitinh    = $_POST['gender'];
 
     $user_id     = 'id_' . time() . '_' . random_int(1000, 9999); //tạo id mới ngẫu nhiên
