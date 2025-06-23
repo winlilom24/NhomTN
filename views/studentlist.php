@@ -19,7 +19,8 @@ $total_records = $total_row['total'];
 $total_pages = ceil($total_records / $limit);
 
 // Lấy dữ liệu cho trang hiện tại
-$sql = "SELECT * FROM thong_tin LIMIT $limit OFFSET $offset";
+$sql = "SELECT * FROM thong_tin ORDER BY id DESC 
+                                LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $sql);
 ?>
 
