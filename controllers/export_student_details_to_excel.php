@@ -11,7 +11,7 @@ if (!isset($_GET['student_id'])) {
     exit();
 }
 
-$student_id = mysqli_real_escape_string($conn, $_GET['student_id']);
+$student_id = $_GET['student_id'];
 
 // Lấy thông tin sinh viên
 $student_query = "SELECT ho_ten FROM thong_tin WHERE id = '$student_id'";
@@ -23,12 +23,8 @@ if (!$student_result || mysqli_num_rows($student_result) == 0) {
 }
 $student = mysqli_fetch_assoc($student_result);
 
-// Tạo tên file động, giữ tiếng Việt
 $ho_ten = $student['ho_ten'];
-// Loại bỏ ký tự không hợp lệ cho tên file, giữ dấu tiếng Việt
-$invalid_chars = ['\\', '/', ':', '*', '?', '"', '<', '>', '|'];
-$clean_ho_ten = str_replace($invalid_chars, '', trim($ho_ten));
-$filename = "Thông tin chi tiết sinh viên " . $clean_ho_ten . ".xls";
+$filename = "Thông tin chi tiết sinh viên " . $ho_ten . ".xls";
 
 // Thiết lập header
 header("Content-type: application/octet-stream");
@@ -68,7 +64,7 @@ $tests_result = mysqli_query($conn, $tests_query);
     <tbody>
         <tr>
             <td><strong>Họ tên</strong></td>
-            <td><?php echo htmlspecialchars($student['ho_ten']); ?></td>
+            <td><?php echo $student['ho_ten']; ?></td>
         </tr>
         <tr>
             <td><strong>Số lần làm bài</strong></td>
@@ -103,11 +99,11 @@ $tests_result = mysqli_query($conn, $tests_query);
         if (mysqli_num_rows($tests_result) > 0) {
             while ($test = mysqli_fetch_assoc($tests_result)) {
                 echo "<tr>";
-                echo "<td>" . htmlspecialchars($test['id_bai_thi']) . "</td>";
-                echo "<td>" . htmlspecialchars($test['so_diem']) . "</td>";
+                echo "<td>" . $test['id_bai_thi'] . "</td>";
+                echo "<td>" . $test['so_diem'] . "</td>";
                 echo "<td>" . number_format($test['thoi_gian_thi'] / 60, 2) . "</td>";
-                echo "<td>" . htmlspecialchars($test['so_cau_dung']) . "</td>";
-                echo "<td>" . htmlspecialchars($test['so_cau_sai']) . "</td>";
+                echo "<td>" . $test['so_cau_dung'] . "</td>";
+                echo "<td>" . $test['so_cau_sai'] . "</td>";
                 echo "</tr>";
             }
         } else {

@@ -11,7 +11,6 @@ session_start();
     <link rel="stylesheet" href="../style/css/DangNhap.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
 <section>
@@ -56,17 +55,6 @@ session_start();
 </section>
 
 <script>
-    // function getCookie(name) {
-    //     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    //     return match ? match[2] : null;
-    // }
-    
-    // function setCookie(name, value, days) {
-    //     const date = new Date();
-    //     date.setTime(date.getTime() + days * 864e5);
-    //     document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/; Secure; SameSite=Strict`;
-    // }
-
     $(document).ready(function() {
         $('.toggle-password').click(() => {
             const input = $('#password');

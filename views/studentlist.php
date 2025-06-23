@@ -30,6 +30,7 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý sinh viên</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="../style/css/studentManager.css">
     <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
 </head>
@@ -51,21 +52,19 @@ $result = mysqli_query($conn, $sql);
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($row['id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['ho_ten']) . "</td>";
-                    $ngay_sinh = date("d/m/Y", strtotime($row['ngay_sinh']));
-                    echo "<td>" . htmlspecialchars($ngay_sinh) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['sdt']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['gioi_tinh']) . "</td>";
-                    echo "<td>";
-                    echo "<a href='student_details.php?student_id=" . htmlspecialchars($row['id']) . "' class='action-btn'>Xem chi tiết</a>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        <td><?= $row['ho_ten'] ?></td>
+                        <td><?= date("d/m/Y", strtotime($row['ngay_sinh'])) ?></td>
+                        <td><?= $row['sdt'] ?></td>
+                        <td><?= $row['gioi_tinh'] ?></td>
+                        <td>
+                            <a href="student_details.php?student_id=<?= $row['id'] ?>" class="action-btn">Xem chi tiết</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+
                 </tbody>
             </table>
             <div class="pagination">
@@ -103,9 +102,6 @@ $result = mysqli_query($conn, $sql);
             </div>
         </div>
     </div>
-
-    <script src="../style/js/studentManager.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <!-- <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> -->
+    
 </body>
 </html>

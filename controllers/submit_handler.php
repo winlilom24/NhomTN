@@ -4,8 +4,7 @@ session_start();
 
 // Kiểm tra xem người dùng đã làm bài chưa
 if (!isset($_SESSION['answers']) || empty($_SESSION['answers'])) {
-    echo "Bạn chưa làm bài!";
-    exit();
+    header("Location: index.php?page=homeAfterLogin");
 }
 
 // Xử lý kết quả trực tiếp tại đây

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../core/Database.php'; // Đảm bảo trong đó có mysqli_connect()
+require_once __DIR__ . '/../core/Database.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
     $id = $_POST['id'];

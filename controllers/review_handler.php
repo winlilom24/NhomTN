@@ -3,10 +3,7 @@ function list_tests() {
     session_start();
 
     $user_id = $_SESSION['user_id'] ?? null;
-    if (!$user_id) {
-        echo "Bạn chưa đăng nhập!";
-        exit();
-    }
+
     require_once __DIR__ . '/../core/Database.php';
     //lấy ds bài thi theo thứ tự mới nhất của user_id
     $stmt = mysqli_prepare($conn, "

@@ -1,16 +1,16 @@
 <?php
 session_start();
-require_once __DIR__ . '/../core/Database.php';
+require __DIR__ . '/../core/Database.php';
 require __DIR__ . '/widget/headerReview.php';
 
-$chapter = isset($_GET['chapter']) ? intval($_GET['chapter']) : 1;
+$chapter = isset($_GET['chapter']) ? $_GET['chapter'] : 1;
 $count = null;
 $questions = [];
 
 if (isset($_POST['answers'])) {
-    $questions = $_SESSION['questions'] ?? [];
+    $questions = $_SESSION['questions'];
     $correct = 0;
-    $evaluated = [];
+    $results = [];
 
     foreach ($questions as $q) {
         $qid = $q['id'];
@@ -19,11 +19,11 @@ if (isset($_POST['answers'])) {
         $q['user_answer'] = $_POST['answers'][$qid];
         $q['is_correct'] = ($q['answer'] === $q['user_answer']);
         if ($q['is_correct']) $correct++;
-        $evaluated[] = $q;
+        $results[] = $q;
     }
-    $questions = $evaluated;
+    $questions = $results;
     $count = $correct;
-    unset($_SESSION['questions']); // optional: clear session after submit
+    unset($_SESSION['questions']); // Xóa phiên làm việc (session) sau khi gửi
 } else {
     $sql = "SELECT * FROM cau_hoi WHERE chapter = $chapter ORDER BY id ASC LIMIT 40";
     $result = mysqli_query($conn, $sql);

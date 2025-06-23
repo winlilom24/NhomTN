@@ -18,7 +18,7 @@ if (isset($_POST['token'])) {
 
 // Xử lý khi có token
 if (!empty($token)) {
-    // Kiểm tra token trong database bằng prepared statement
+    // Kiểm tra token trong database 
     $sql = "SELECT * FROM tai_khoan WHERE reset_token = ? AND token_expiries > NOW()";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $token);
@@ -77,7 +77,7 @@ if (!empty($token)) {
     <title>Đặt lại mật khẩu</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="shortcut icon" href="../style/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../style/css/DangNhap.css">
 </head>
 <body>
@@ -96,7 +96,7 @@ if (!empty($token)) {
                             <button type="submit">Kiểm tra token</button>
                         <?php } elseif (isset($user) && empty($success_message)) { ?>
                             <!-- Biểu mẫu đặt lại mật khẩu nếu token hợp lệ -->
-                            <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
+                            <input type="hidden" name="token" value="<?php echo $token; ?>">
                             <div class="form-group">
                                 <ion-icon name="lock-closed"></ion-icon>
                                 <input type="password" id="password" name="password" placeholder="Mật khẩu mới" required>

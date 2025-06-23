@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['message'] = "";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tk'])) {
+if (isset($_POST['tk'])) {
     require_once __DIR__ . '/../core/Database.php'; 
 
     $tendn = $_POST['tk'];
@@ -45,7 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tk'])) {
         $_SESSION['user_id'] = $userId;
         $_SESSION['ho_ten'] = $hoten;     
         $_SESSION['role'] = $role;
-        // $_SESSION['login_success'] = true;
 
         $remember = isset($_POST['rememberMe']); // checkbox
 

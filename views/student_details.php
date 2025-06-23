@@ -10,7 +10,7 @@ if (!isset($_GET['student_id'])) {
     exit();
 }
 
-$student_id = mysqli_real_escape_string($conn, $_GET['student_id']);
+$student_id = $_GET['student_id'];
 
 // Lấy thông tin sinh viên
 $student_query = "SELECT ho_ten FROM thong_tin WHERE id = '$student_id'";

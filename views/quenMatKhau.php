@@ -13,8 +13,8 @@ $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $email = trim($_POST['email']);
-    $username = trim($_POST['username']);
+    $email = $_POST['email'];
+    $username = $_POST['username'];
     
     // Kiểm tra email có tồn tại không (dùng prepared statements)
     $sql = "SELECT * FROM tai_khoan WHERE ten_tai_khoan = ? AND email = ?";
@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $update->execute();
 
         // Link reset
-    //    $reset_link = "http://localhost/Nhom=TN2/views/reset_password.php?token=$token";
         $reset_link = "http://localhost/NhomTN/views/reset_password.php";
         // Gửi mail
         $mail = new PHPMailer(true);
@@ -75,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Quên Mật Khẩu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="../style/css/DangNhap.css">
 </head>
 <body>
