@@ -9,7 +9,7 @@ $result = mysqli_query($conn, $sql);
 $sodongdulieu= mysqli_num_rows($result);
 $sotrangdl= ceil($sodongdulieu/$sodongtrentrang);
 $vtbd = ($page-1) *$sodongtrentrang;
-$sqltheotrang = "SELECT * FROM cau_hoi ORDER BY id ASC LIMIT {$vtbd}, {$sodongtrentrang}";
+$sqltheotrang = "SELECT * FROM cau_hoi ORDER BY id DESC LIMIT {$vtbd}, {$sodongtrentrang}";
 $kqpt = mysqli_query($conn,$sqltheotrang);
 $stt = $vtbd +1;
 
